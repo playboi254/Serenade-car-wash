@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experience AquaSonic Car Wash | America's Smartest Car Wash</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;color:#2c3e55;background:#fff;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none}
+:root{
+  --navy:#0a1628; --deep:#0d2240; --brand:#1a4a8a;
+  --blue:#2d7dd2; --sky:#5ab4e5; --aqua:#00c2e0;
+  --gold:#e8b84b; --white:#fff; --off:#f4f7fb;
+  --lgray:#e8edf4; --mgray:#8899aa;
+  --dark:#0a1628; --body:#2c3e55; --hh:80px;
+}
+
+/* ═══ HEADER — fully transparent on hero, solid on scroll ═══ */
+#site-header{
+  position:fixed;top:0;left:0;right:0;z-index:9000;
+  height:var(--hh);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;
+  background:transparent;
+  transition:background .45s ease,box-shadow .45s ease,backdrop-filter .45s ease;
+}
+#site-header.scrolled{
+  background:rgba(10,22,40,.95);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  box-shadow:0 2px 28px rgba(0,0,0,.4);
+}
+
+/* logo */
+.hdr-logo{display:flex;align-items:center;gap:11px;text-decoration:none}
+.hdr-logo svg{width:42px;height:42px;flex-shrink:0}
+.hdr-wordmark{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:#fff;letter-spacing:.04em}
+.hdr-wordmark span{color:var(--aqua)}
+
+/* nav links */
+.hdr-nav{display:flex;align-items:center;gap:26px}
+.hdr-nav>a,.has-drop>a{
+  color:rgba(255,255,255,.85);font-size:.73rem;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;transition:color .2s;white-space:nowrap;
+}
+.hdr-nav>a:hover,.has-drop>a:hover{color:var(--aqua)}
+
+/* dropdown */
+.has-drop{position:relative}
+.has-drop>a::after{content:' ▾';font-size:.55rem;opacity:.6}
+.drop{
+  display:none;position:absolute;top:calc(100% + 10px);left:0;
+  min-width:210px;background:rgba(10,22,40,.97);
+  border:1px solid rgba(0,194,224,.18);border-radius:5px;padding:10px 0;
+  animation:dropIn .2s ease both;
+}
+@keyframes dropIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.has-drop:hover .drop{display:block}
+.drop a{
+  display:block;padding:9px 20px;
+  color:rgba(255,255,255,.72);font-size:.77rem;font-weight:500;
+  transition:all .15s;
+}
+.drop a:hover{color:var(--aqua);background:rgba(0,194,224,.07);padding-left:26px}
+
+.btn-login{
+  border:1.5px solid rgba(255,255,255,.38)!important;
+  color:#fff!important;padding:8px 22px!important;border-radius:3px!important;
+  font-size:.71rem!important;letter-spacing:.11em!important;
+  font-weight:700!important;text-transform:uppercase!important;transition:all .22s!important;
+}
+.btn-login:hover{background:var(--aqua)!important;border-color:var(--aqua)!important;color:var(--navy)!important}
+
+/* burger */
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.burger span{display:block;width:24px;height:2px;background:#fff;border-radius:1px;transition:all .3s}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* mobile drawer */
+.mob-menu{
+  display:none;position:fixed;top:var(--hh);left:0;right:0;bottom:0;
+  background:rgba(10,22,40,.98);z-index:8999;overflow-y:auto;
+  padding:28px 32px 60px;transform:translateX(100%);transition:transform .35s ease;
+}
+.mob-menu.open{transform:translateX(0)}
+.mob-menu a{
+  display:block;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.07);
+  color:rgba(255,255,255,.82);font-size:1rem;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;
+}
+
+/* ═══ HERO ═══ */
+.hero{
+  position:relative;height:100vh;min-height:660px;
+  overflow:hidden;background:var(--navy);
+  display:flex;align-items:center;justify-content:center;
+}
+/* Video fills entire hero and slowly scales — Ken Burns */
+.hero-video{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  animation:kenBurns 20s ease-in-out infinite alternate;
+  transform-origin:center center;
+}
+@keyframes kenBurns{
+  from{transform:scale(1.0)}
+  to  {transform:scale(1.14)}
+}
+/* gradient overlay */
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,
+    rgba(10,22,40,.5) 0%,
+    rgba(10,22,40,.25) 40%,
+    rgba(10,22,40,.7) 100%);
+}
+.hero-content{
+  position:relative;z-index:2;text-align:center;
+  max-width:880px;padding:0 24px;
+  animation:fadeUp .9s .15s ease both;
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+.hero-eyebrow{
+  font-size:.67rem;letter-spacing:.38em;text-transform:uppercase;
+  color:var(--aqua);font-weight:700;margin-bottom:22px;
+}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(3rem,7.5vw,6.2rem);
+  color:#fff;line-height:1.06;margin-bottom:24px;font-weight:900;
+}
+.hero h1 em{font-style:italic;color:var(--aqua)}
+.hero-sub{
+  font-size:1rem;color:rgba(255,255,255,.68);
+  font-weight:300;letter-spacing:.04em;
+  margin-bottom:46px;line-height:1.8;
+}
+.hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-primary{
+  display:inline-block;background:var(--aqua);color:var(--navy);
+  padding:15px 40px;border-radius:3px;font-size:.78rem;font-weight:800;
+  letter-spacing:.14em;text-transform:uppercase;
+  border:2px solid var(--aqua);transition:all .25s;
+}
+.btn-primary:hover{background:transparent;color:var(--aqua)}
+.btn-ghost{
+  display:inline-block;background:transparent;color:#fff;
+  padding:15px 40px;border-radius:3px;font-size:.78rem;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;
+  border:2px solid rgba(255,255,255,.44);transition:all .25s;
+}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+/* scroll caret */
+.hero-scroll{
+  position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:7px;
+  color:rgba(255,255,255,.42);font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;
+  animation:fadeUp 1s .8s ease both;
+}
+.scroll-line{
+  width:1px;height:52px;
+  background:linear-gradient(to bottom,rgba(255,255,255,.5),transparent);
+  animation:linePulse 2.2s ease-in-out infinite;
+}
+@keyframes linePulse{0%,100%{opacity:.3;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.2)}}
+
+/* ═══ RIBBON — two rows, opposite scroll directions ═══ */
+.ribbon-wrap{overflow:hidden}
+.rib-row{display:flex;white-space:nowrap;overflow:hidden}
+.rib-row-aqua{background:var(--aqua);padding:12px 0}
+.rib-row-navy{background:var(--navy);padding:10px 0;border-top:1px solid rgba(0,194,224,.14)}
+.rib-track{display:inline-flex;animation-timing-function:linear;animation-iteration-count:infinite}
+.rib-row-aqua .rib-track{animation-name:tickLeft;animation-duration:36s}
+.rib-row-navy .rib-track{animation-name:tickRight;animation-duration:30s}
+@keyframes tickLeft {from{transform:translateX(0)}   to{transform:translateX(-50%)}}
+@keyframes tickRight{from{transform:translateX(-50%)} to{transform:translateX(0)}}
+.rib-item{
+  display:inline-flex;align-items:center;gap:8px;padding:0 26px;
+  font-size:.69rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;
+}
+.rib-row-aqua .rib-item{color:var(--navy)}
+.rib-row-navy .rib-item{color:rgba(255,255,255,.5)}
+.rib-dot{width:4px;height:4px;border-radius:50%;background:currentColor;opacity:.4;flex-shrink:0}
+
+/* ═══ SHARED ═══ */
+.container{max-width:1240px;margin:0 auto;padding:0 48px}
+.sec{padding:100px 0}
+.sec-gray{background:var(--off)}
+.sec-navy{background:var(--navy)}
+.sec-dark{background:#060e1c}
+.sec-label{font-size:.64rem;letter-spacing:.32em;text-transform:uppercase;color:var(--aqua);font-weight:700;margin-bottom:14px}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3.4vw,2.85rem);color:var(--dark);line-height:1.18;margin-bottom:18px}
+.sec-title em{font-style:italic;color:var(--brand)}
+.sec-sub{font-size:.92rem;color:var(--mgray);line-height:1.88;max-width:560px}
+.t-center{text-align:center}
+.mx-auto{margin:0 auto}
+
+/* scroll reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.rv.vis{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.18s}.d3{transition-delay:.28s}
+.d4{transition-delay:.38s}.d5{transition-delay:.48s}
+
+/* ═══ JOURNEY CARDS ═══ */
+.journey-hdr{text-align:center;margin-bottom:66px}
+.jgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+.jcard{
+  background:#fff;border-radius:5px;overflow:hidden;
+  box-shadow:0 4px 22px rgba(10,22,40,.06);
+  transition:transform .35s,box-shadow .35s;display:flex;flex-direction:column;
+}
+.jcard:hover{transform:translateY(-8px);box-shadow:0 22px 58px rgba(10,22,40,.14)}
+.jcard-imgwrap{overflow:hidden;aspect-ratio:16/9}
+.jcard-imgwrap img{width:100%;height:100%;object-fit:cover;transition:transform .55s ease}
+.jcard:hover .jcard-imgwrap img{transform:scale(1.07)}
+.jcard-body{padding:28px 30px 34px;flex:1}
+.jtag{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--aqua);font-weight:700;margin-bottom:10px}
+.jcard-body h3{font-family:'Playfair Display',serif;font-size:1.28rem;color:var(--dark);margin-bottom:12px;line-height:1.3}
+.jcard-body p{font-size:.87rem;line-height:1.82;color:var(--body)}
+
+/* JEEP full-width band with slow zoom-out on scroll entry */
+.jeep-band{position:relative;height:460px;overflow:hidden}
+.jeep-band img{
+  width:100%;height:100%;object-fit:cover;
+  transform:scale(1.08);transition:transform 9s cubic-bezier(.25,.46,.45,.94);
+}
+.jeep-band.zoomed img{transform:scale(1)}
+.jeep-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(10,22,40,.1) 0%,rgba(10,22,40,.62) 100%);
+  display:flex;align-items:flex-end;padding:48px;
+}
+.jeep-quote{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,4vw,3.6rem);font-style:italic;font-weight:700;color:#fff;
+}
+.jeep-quote span{color:var(--aqua)}
+
+/* ═══ FINDER ═══ */
+.finder{
+  padding:90px 0;text-align:center;
+  background:linear-gradient(140deg,var(--navy) 0%,var(--deep) 100%);
+  position:relative;overflow:hidden;
+}
+.finder::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 110%,rgba(0,194,224,.13),transparent 65%);
+}
+.finder .container{position:relative;z-index:1}
+.finder-form{display:flex;justify-content:center;max-width:456px;margin:0 auto}
+.finder-input{
+  flex:1;padding:15px 20px;
+  background:rgba(255,255,255,.09);
+  border:1.5px solid rgba(255,255,255,.22);border-right:none;
+  color:#fff;font-family:'Montserrat',sans-serif;font-size:.88rem;
+  border-radius:3px 0 0 3px;outline:none;transition:border-color .2s;
+}
+.finder-input::placeholder{color:rgba(255,255,255,.35)}
+.finder-input:focus{border-color:var(--aqua)}
+.finder-btn{
+  background:var(--aqua);color:var(--navy);border:none;
+  padding:15px 28px;font-family:'Montserrat',sans-serif;
+  font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  cursor:pointer;border-radius:0 3px 3px 0;transition:background .2s;
+}
+.finder-btn:hover{background:var(--sky)}
+
+/* ═══ PACKAGES — drag carousel ═══ */
+.pkg-hdr{text-align:center;margin-bottom:52px}
+.drag-hint{font-size:.67rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mgray);margin-top:10px}
+.carousel-wrap{overflow:hidden;cursor:grab;padding-bottom:14px}
+.carousel-wrap:active{cursor:grabbing}
+.carousel-track{display:flex;gap:24px;padding:0 48px 10px;user-select:none;will-change:transform;transition:none}
+.pkg-card{
+  flex:0 0 390px;border:1px solid var(--lgray);border-radius:6px;
+  padding:44px 36px 42px;display:flex;flex-direction:column;gap:16px;
+  background:#fff;position:relative;transition:all .3s;
+}
+.pkg-card:hover{border-color:var(--aqua);box-shadow:0 12px 46px rgba(0,194,224,.13);transform:translateY(-5px)}
+.pkg-card.featured{background:var(--navy);border-color:var(--aqua);box-shadow:0 14px 54px rgba(0,194,224,.2)}
+.pkg-badge{
+  position:absolute;top:0;right:0;
+  background:var(--aqua);color:var(--navy);
+  font-size:.59rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;
+  padding:6px 16px;border-radius:0 5px 0 5px;
+}
+.pkg-ico{width:52px;height:52px;border-radius:50%;background:var(--off);display:flex;align-items:center;justify-content:center;font-size:1.4rem}
+.pkg-card.featured .pkg-ico{background:rgba(0,194,224,.14)}
+.pkg-label{font-size:.63rem;letter-spacing:.22em;text-transform:uppercase;color:var(--aqua);font-weight:700}
+.pkg-name{font-family:'Playfair Display',serif;font-size:1.72rem;color:var(--dark);line-height:1.14}
+.pkg-card.featured .pkg-name{color:#fff}
+.pkg-sub{font-size:.77rem;font-weight:600;color:var(--mgray);text-transform:uppercase;letter-spacing:.08em}
+.pkg-card.featured .pkg-sub{color:rgba(255,255,255,.44)}
+.pkg-desc{font-size:.86rem;line-height:1.82;color:var(--body);flex:1}
+.pkg-card.featured .pkg-desc{color:rgba(255,255,255,.64)}
+.pkg-link{
+  font-size:.73rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--aqua);display:inline-flex;align-items:center;gap:6px;
+  align-self:flex-start;transition:gap .2s;
+}
+.pkg-link:hover{gap:11px}
+
+/* ═══ FREEDOMPASS ═══ */
+.fp-wrap{display:grid;grid-template-columns:1fr 1fr;gap:76px;align-items:center}
+.fp-kicker{font-size:.63rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:16px}
+.fp-text .sec-title{color:#fff}
+.fp-text .sec-sub{color:rgba(255,255,255,.52);margin-bottom:36px}
+.fp-card{
+  background:linear-gradient(140deg,rgba(0,194,224,.1),rgba(45,125,210,.08));
+  border:1px solid rgba(0,194,224,.22);border-radius:8px;padding:48px 44px;position:relative;overflow:hidden;
+}
+.fp-card::before{
+  content:'';position:absolute;top:-80px;right:-80px;
+  width:220px;height:220px;border-radius:50%;
+  background:radial-gradient(circle,rgba(0,194,224,.1),transparent 70%);
+}
+.fp-name{font-family:'Playfair Display',serif;font-size:2.5rem;font-style:italic;color:#fff;margin-bottom:6px}
+.fp-name span{color:var(--aqua)}
+.fp-tagline{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:28px}
+.fp-list{list-style:none;display:flex;flex-direction:column;gap:13px;margin-bottom:36px}
+.fp-list li{font-size:.86rem;color:rgba(255,255,255,.68);display:flex;align-items:flex-start;gap:12px;line-height:1.55}
+.fp-list li::before{content:'✦';color:var(--aqua);font-size:.6rem;margin-top:4px;flex-shrink:0}
+
+/* ═══ SELFIE + DOG VIDEO SPLIT ═══ */
+.media-split{display:grid;grid-template-columns:1fr 1fr;min-height:520px}
+.media-side{position:relative;overflow:hidden}
+.media-side img{width:100%;height:100%;object-fit:cover;transition:transform .55s ease}
+.media-side:hover img{transform:scale(1.05)}
+.media-side video{
+  width:100%;height:100%;object-fit:cover;
+  animation:kenBurns 22s ease-in-out infinite alternate;
+}
+
+/* ═══ APP SECTION ═══ */
+.app-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.app-badge{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--navy);color:#fff;
+  font-size:.76rem;font-weight:600;letter-spacing:.05em;
+  padding:10px 22px;border-radius:40px;margin-bottom:30px;
+}
+.app-badge span{color:var(--aqua)}
+.store-btns{display:flex;gap:14px;flex-wrap:wrap}
+.store-btn{
+  background:var(--navy);color:#fff;
+  padding:12px 22px;border-radius:5px;
+  display:flex;align-items:center;gap:11px;
+  border:1px solid rgba(255,255,255,.1);transition:background .2s;
+}
+.store-btn:hover{background:var(--brand)}
+.store-btn-ico{font-size:1.5rem}
+.store-btn-txt small{display:block;font-size:.58rem;letter-spacing:.08em;opacity:.55;text-transform:uppercase}
+.store-btn-txt strong{display:block;font-size:.88rem;font-weight:700}
+/* phone */
+.phone-wrap{display:flex;justify-content:center}
+.phone{
+  width:268px;height:528px;
+  background:linear-gradient(160deg,var(--navy),var(--deep));
+  border-radius:42px;border:2px solid rgba(0,194,224,.28);
+  box-shadow:0 32px 90px rgba(10,22,40,.42),0 0 0 1px rgba(0,194,224,.05);
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;
+}
+.phone::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:90px;height:28px;background:rgba(0,0,0,.6);border-radius:0 0 16px 16px}
+.phone-logo{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#fff}
+.phone-logo span{color:var(--aqua)}
+.phone-sub{font-size:.63rem;color:rgba(255,255,255,.32);letter-spacing:.18em;text-transform:uppercase}
+.phone-dots{display:flex;gap:6px;margin-top:6px}
+.phone-dots span{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.22)}
+.phone-dots span:first-child{background:var(--aqua)}
+.phone-wave{position:absolute;bottom:0;left:0;right:0;height:150px;background:linear-gradient(to top,rgba(0,194,224,.1),transparent);border-radius:0 0 40px 40px}
+
+/* ═══ NEWS CAROUSEL ═══ */
+.news-hdr{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:44px}
+.news-card{
+  flex:0 0 340px;border-radius:5px;overflow:hidden;
+  background:#fff;border:1px solid var(--lgray);
+  box-shadow:0 4px 18px rgba(10,22,40,.06);
+  transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column;
+}
+.news-card:hover{transform:translateY(-5px);box-shadow:0 16px 46px rgba(10,22,40,.12)}
+.news-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:transform .5s}
+.news-card:hover .news-img{transform:scale(1.05)}
+.news-body{padding:20px 22px 26px;flex:1;display:flex;flex-direction:column}
+.news-tag{font-size:.59rem;letter-spacing:.2em;text-transform:uppercase;color:var(--aqua);font-weight:700;margin-bottom:10px}
+.news-title{font-family:'Playfair Display',serif;font-size:.97rem;color:var(--dark);line-height:1.44;margin-bottom:10px;flex:1}
+.news-date{font-size:.7rem;color:var(--mgray)}
+
+/* ═══ DIFFERENCE ═══ */
+.diff-hdr{text-align:center;margin-bottom:66px}
+.diff-hdr .sec-title{color:#fff}
+.diff-hdr .sec-sub{color:rgba(255,255,255,.44);margin:0 auto;text-align:center}
+.diff-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.diff-card{
+  text-align:center;padding:36px 16px;
+  border:1px solid rgba(255,255,255,.07);border-radius:5px;
+  background:rgba(255,255,255,.02);transition:all .3s;
+}
+.diff-card:hover{background:rgba(0,194,224,.06);border-color:rgba(0,194,224,.28);transform:translateY(-5px)}
+.diff-ico{display:block;width:52px;height:52px;margin:0 auto 18px}
+.diff-label{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--aqua);font-weight:700;margin-bottom:8px}
+.diff-title{font-family:'Playfair Display',serif;font-size:1.06rem;color:#fff;margin-bottom:10px;line-height:1.3}
+.diff-desc{font-size:.78rem;color:rgba(255,255,255,.42);line-height:1.72}
+
+/* ═══ HASHTAG BAR ═══ */
+.hashtag-bar{
+  background:var(--aqua);text-align:center;padding:24px;
+  font-family:'Playfair Display',serif;font-size:1.35rem;
+  font-style:italic;font-weight:700;color:var(--navy);letter-spacing:.02em;
+}
+
+/* ═══ FOOTER ═══ */
+footer{background:#060e1c;padding:72px 0 36px}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:50px;margin-bottom:60px}
+.foot-logo{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:#fff}
+.foot-logo span{color:var(--aqua)}
+.foot-tagline{font-size:.76rem;color:rgba(255,255,255,.3);line-height:1.88;margin:16px 0 24px}
+.socials{display:flex;gap:10px;flex-wrap:wrap}
+.soc{
+  width:34px;height:34px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.13);
+  color:rgba(255,255,255,.48);font-size:.72rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .2s;
+}
+.soc:hover{border-color:var(--aqua);color:var(--aqua);background:rgba(0,194,224,.08)}
+.foot-col h4{font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.28);font-weight:600;margin-bottom:20px}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.foot-col a{font-size:.82rem;color:rgba(255,255,255,.54);transition:color .2s}
+.foot-col a:hover{color:var(--aqua)}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.foot-copy{font-size:.72rem;color:rgba(255,255,255,.2)}
+.foot-legal{display:flex;gap:24px}
+.foot-legal a{font-size:.7rem;color:rgba(255,255,255,.27);transition:color .2s}
+.foot-legal a:hover{color:var(--aqua)}
+
+/* ═══ MODAL — Tampa popup ═══ */
+.modal-backdrop{
+  display:none;position:fixed;inset:0;z-index:9999;
+  background:rgba(10,22,40,.76);backdrop-filter:blur(5px);
+  align-items:center;justify-content:center;padding:20px;
+}
+.modal-backdrop.open{display:flex}
+.modal{
+  background:var(--navy);border:1px solid rgba(0,194,224,.24);
+  border-radius:8px;max-width:520px;width:100%;
+  position:relative;overflow:hidden;
+  animation:popIn .4s ease both;
+}
+@keyframes popIn{from{opacity:0;transform:scale(.88) translateY(20px)}to{opacity:1;transform:none}}
+.modal-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.modal-body{padding:32px}
+.modal-tag{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--aqua);font-weight:700;margin-bottom:12px}
+.modal-title{font-family:'Playfair Display',serif;font-size:1.75rem;color:#fff;margin-bottom:8px;line-height:1.22}
+.modal-lead{font-size:.84rem;color:rgba(255,255,255,.5);line-height:1.72;margin-bottom:24px}
+.modal-close{
+  position:absolute;top:14px;right:14px;
+  width:32px;height:32px;border-radius:50%;
+  background:rgba(255,255,255,.1);border:none;
+  color:#fff;font-size:.9rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:background .2s;
+}
+.modal-close:hover{background:rgba(255,255,255,.2)}
+.modal-btns{display:flex;gap:12px;flex-wrap:wrap}
+
+/* ═══ FORM MODALS ═══ */
+.fmodal{display:none;position:fixed;inset:0;z-index:9998;background:rgba(10,22,40,.8);backdrop-filter:blur(5px);align-items:center;justify-content:center;padding:20px}
+.fmodal.open{display:flex}
+.fbox{background:#fff;border-radius:6px;max-width:480px;width:100%;padding:44px 40px;position:relative;animation:popIn .35s ease both}
+.fbox-close{position:absolute;top:14px;right:16px;width:30px;height:30px;border-radius:50%;background:var(--lgray);border:none;font-size:.88rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.fbox-close:hover{background:var(--aqua);color:#fff}
+.fbox h3{font-family:'Playfair Display',serif;font-size:1.55rem;color:var(--dark);margin-bottom:6px}
+.fbox p{font-size:.82rem;color:var(--mgray);line-height:1.72;margin-bottom:24px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.frow.full{grid-template-columns:1fr}
+.ffield{display:flex;flex-direction:column;gap:5px}
+.ffield label{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--dark)}
+.ffield input,.ffield select,.ffield textarea{
+  padding:10px 14px;border:1.5px solid var(--lgray);border-radius:3px;
+  font-family:'Montserrat',sans-serif;font-size:.84rem;outline:none;transition:border-color .2s;
+}
+.ffield input:focus,.ffield select:focus,.ffield textarea:focus{border-color:var(--aqua)}
+.ffield textarea{resize:vertical;min-height:88px}
+.fcheck{display:flex;gap:10px;align-items:flex-start;margin-bottom:18px}
+.fcheck input{margin-top:3px;flex-shrink:0}
+.fcheck label{font-size:.77rem;color:var(--mgray);line-height:1.55}
+.fcheck a{color:var(--brand)}
+.fsub{
+  width:100%;padding:13px;background:var(--aqua);color:var(--navy);
+  border:none;border-radius:3px;font-family:'Montserrat',sans-serif;
+  font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  cursor:pointer;transition:background .2s;
+}
+.fsub:hover{background:var(--sky)}
+
+/* ═══ STICKY BAR ═══ */
+.sticky-bar{
+  position:fixed;bottom:0;left:0;right:0;z-index:8000;
+  background:rgba(10,22,40,.97);backdrop-filter:blur(12px);
+  border-top:1px solid rgba(0,194,224,.2);
+  padding:14px 48px;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  transform:translateY(100%);transition:transform .5s ease;
+}
+.sticky-bar.show{transform:translateY(0)}
+.sticky-bar-txt{font-size:.83rem;color:rgba(255,255,255,.68);font-weight:500}
+.sticky-bar-txt strong{color:#fff}
+.sticky-bar-actions{display:flex;gap:12px;align-items:center}
+.bar-dismiss{background:none;border:none;color:rgba(255,255,255,.38);font-size:1.1rem;cursor:pointer;transition:color .2s}
+.bar-dismiss:hover{color:#fff}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:1040px){
+  .diff-grid{grid-template-columns:repeat(3,1fr)}
+  .fp-wrap{grid-template-columns:1fr;gap:44px}
+  .app-inner{grid-template-columns:1fr}
+  .phone-wrap{display:none}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:36px}
+  .jgrid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  :root{--hh:64px}
+  #site-header{padding:0 20px}
+  .hdr-nav{display:none}
+  .burger{display:flex}
+  .mob-menu{display:block}
+  .container{padding:0 20px}
+  .sec{padding:70px 0}
+  .diff-grid{grid-template-columns:repeat(2,1fr)}
+  .foot-grid{grid-template-columns:1fr}
+  .media-split{grid-template-columns:1fr}
+  .media-split .media-side:first-child{display:none}
+  .hero-ctas{flex-direction:column;align-items:center}
+  .carousel-track{padding:0 20px 10px}
+  .finder-form{flex-direction:column;max-width:100%}
+  .finder-input{border-right:1.5px solid rgba(255,255,255,.22);border-bottom:none;border-radius:3px 3px 0 0}
+  .finder-btn{border-radius:0 0 3px 3px}
+  .news-hdr{flex-direction:column;align-items:flex-start;gap:14px}
+  .sticky-bar{padding:14px 20px;flex-direction:column;text-align:center}
+}
+@media(max-width:480px){
+  .diff-grid{grid-template-columns:1fr}
+  .frow{grid-template-columns:1fr}
+  .modal-btns{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header id="site-header">
+  <a href="#" class="hdr-logo">
+    <svg viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="21" cy="21" r="20" stroke="#00c2e0" stroke-width="1.5"/>
+      <path d="M7 26 Q13 14 21 21 Q29 28 35 16" stroke="#00c2e0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+      <path d="M7 30 Q13 18 21 25 Q29 32 35 20" stroke="rgba(0,194,224,.35)" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+    </svg>
+    <span class="hdr-wordmark">Aqua<span>Sonic</span>™</span>
+  </a>
+
+  <nav class="hdr-nav">
+    <a href="#">Wash Packages</a>
+    <a href="#">FreedomPass™</a>
+    <a href="#">Locations</a>
+    <div class="has-drop">
+      <a href="#">Company</a>
+      <div class="drop">
+        <a href="#">About AquaSonic</a>
+        <a href="#">Sustainability</a>
+        <a href="#">Newsroom</a>
+        <a href="#">Careers</a>
+        <a href="#">Giving Back</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+    <a href="#">Help &amp; Support</a>
+    <a href="#" class="btn-login">Login</a>
+  </nav>
+
+  <button class="burger" id="burgerBtn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- mobile drawer -->
+<div class="mob-menu" id="mobMenu">
+  <a href="#">Home</a>
+  <a href="#">Wash Packages</a>
+  <a href="#">FreedomPass™</a>
+  <a href="#">Locations</a>
+  <a href="#">About AquaSonic</a>
+  <a href="#">Sustainability</a>
+  <a href="#">Newsroom</a>
+  <a href="#">Careers</a>
+  <a href="#">Help &amp; Support</a>
+  <a href="#" style="color:var(--aqua);margin-top:18px">Login →</a>
+</div>
+
+<!-- ═══ HERO — video + Ken Burns zoom ═══ -->
+<section class="hero">
+  <video class="hero-video" autoplay muted loop playsinline
+    poster="https://www.aquasoniccarwash.com/wp-content/uploads/2024/12/aquasonic-sunset-roadtrip-woman-enjoying-car-journey.webp">
+    <source src="https://www.aquasoniccarwash.com/wp-content/uploads/2024/11/woman_sunset_beach_1920.webm" type="video/webm">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Start Your Journey</p>
+    <h1>Welcome to<br><em>AquaSonic™</em></h1>
+    <p class="hero-sub">America's Smartest Car Wash:<br>Smart technology. Smarter chemistry. Unbeatable shine.</p>
+    <div class="hero-ctas">
+      <a href="#" class="btn-primary">Memberships</a>
+      <a href="#" class="btn-ghost">Locations</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ═══ RIBBON — Row 1: aqua LEFT, Row 2: navy RIGHT ═══ -->
+<div class="ribbon-wrap">
+  <div class="rib-row rib-row-aqua">
+    <div class="rib-track">
+      <span class="rib-item">#fortheloveof<span class="rib-dot"></span></span>
+      <span class="rib-item">theroad<span class="rib-dot"></span></span>
+      <span class="rib-item">newportrichey<span class="rib-dot"></span></span>
+      <span class="rib-item">tampa<span class="rib-dot"></span></span>
+      <span class="rib-item">jacksonville<span class="rib-dot"></span></span>
+      <span class="rib-item">portstlucie<span class="rib-dot"></span></span>
+      <span class="rib-item">lakeworth<span class="rib-dot"></span></span>
+      <span class="rib-item">sarasota<span class="rib-dot"></span></span>
+      <span class="rib-item">stpete<span class="rib-dot"></span></span>
+      <span class="rib-item">bradenton<span class="rib-dot"></span></span>
+      <span class="rib-item">orlando<span class="rib-dot"></span></span>
+      <span class="rib-item">charleston<span class="rib-dot"></span></span>
+      <span class="rib-item">ocoee<span class="rib-dot"></span></span>
+      <span class="rib-item">davenport<span class="rib-dot"></span></span>
+      <!-- duplicate for seamless loop -->
+      <span class="rib-item">#fortheloveof<span class="rib-dot"></span></span>
+      <span class="rib-item">theroad<span class="rib-dot"></span></span>
+      <span class="rib-item">newportrichey<span class="rib-dot"></span></span>
+      <span class="rib-item">tampa<span class="rib-dot"></span></span>
+      <span class="rib-item">jacksonville<span class="rib-dot"></span></span>
+      <span class="rib-item">portstlucie<span class="rib-dot"></span></span>
+      <span class="rib-item">lakeworth<span class="rib-dot"></span></span>
+      <span class="rib-item">sarasota<span class="rib-dot"></span></span>
+      <span class="rib-item">stpete<span class="rib-dot"></span></span>
+      <span class="rib-item">bradenton<span class="rib-dot"></span></span>
+      <span class="rib-item">orlando<span class="rib-dot"></span></span>
+      <span class="rib-item">charleston<span class="rib-dot"></span></span>
+      <span class="rib-item">ocoee<span class="rib-dot"></span></span>
+      <span class="rib-item">davenport<span class="rib-dot"></span></span>
+    </div>
+  </div>
+  <div class="rib-row rib-row-navy">
+    <div class="rib-track">
+      <span class="rib-item">smart technology<span class="rib-dot"></span></span>
+      <span class="rib-item">smarter chemistry<span class="rib-dot"></span></span>
+      <span class="rib-item">unbeatable shine<span class="rib-dot"></span></span>
+      <span class="rib-item">america's smartest car wash<span class="rib-dot"></span></span>
+      <span class="rib-item">nano-tech regeneration<span class="rib-dot"></span></span>
+      <span class="rib-item">ceramic protection<span class="rib-dot"></span></span>
+      <span class="rib-item">freedompass™<span class="rib-dot"></span></span>
+      <span class="rib-item">ultimage wash™<span class="rib-dot"></span></span>
+      <span class="rib-item">smart technology<span class="rib-dot"></span></span>
+      <span class="rib-item">smarter chemistry<span class="rib-dot"></span></span>
+      <span class="rib-item">unbeatable shine<span class="rib-dot"></span></span>
+      <span class="rib-item">america's smartest car wash<span class="rib-dot"></span></span>
+      <span class="rib-item">nano-tech regeneration<span class="rib-dot"></span></span>
+      <span class="rib-item">ceramic protection<span class="rib-dot"></span></span>
+      <span class="rib-item">freedompass™<span class="rib-dot"></span></span>
+      <span class="rib-item">ultimawash™<span class="rib-dot"></span></span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ JOURNEY ═══ -->
+<section class="sec sec-gray">
+  <div class="container">
+    <div class="journey-hdr rv">
+      <p class="sec-label">We Are Here For The Journey</p>
+      <h2 class="sec-title">Wherever that <em>takes you.</em></h2>
+      <p class="sec-sub mx-auto t-center">Here's to those who know that driving isn't just about getting there. It's about the memories you make along the way.</p>
+    </div>
+    <div class="jgrid">
+      <div class="jcard rv d1">
+        <div class="jcard-imgwrap">
+          <img src="https://www.aquasoniccarwash.com/wp-content/uploads/2025/01/Electric-off-road-pick-up-truck-600x324.webp" alt="A sleek electric pickup truck with off-road tires and LED lighting" loading="lazy">
+        </div>
+        <div class="jcard-body">
+          <div class="jtag">For the dreamers</div>
+          <h3>For the Dreamers</h3>
+          <p>Here's to those who know that driving isn't just about getting there. It's about the memories you make along the way—the open skies, the untamed roads, and the freedom to explore.</p>
+        </div>
+      </div>
+      <div class="jcard rv d2">
+        <div class="jcard-imgwrap">
+          <img src="https://www.aquasoniccarwash.com/wp-content/uploads/2024/10/Woman_car_window_sunset-600x400.webp" alt="A young woman leaning out of a car window, enjoying the golden hour" loading="lazy">
+        </div>
+        <div class="jcard-body">
+          <div class="jtag">For the lovers</div>
+          <h3>For the Lovers</h3>
+          <p>You're not afraid of detours or the unknown. You embrace the unexpected and live for the thrill of what's around the next bend. Every mile is a mapless moment, and that's the point.</p>
+        </div>
+      </div>
+      <div class="jcard rv d3">
+        <div class="jcard-imgwrap">
+          <img src="https://www.aquasoniccarwash.com/wp-content/uploads/2024/10/Middle_aged_couple_sunset-600x337.webp" alt="A smiling couple wearing sunglasses, driving at sunset" loading="lazy">
+        </div>
+        <div class="jcard-body">
+          <div class="jtag">For the adventurers</div>
+          <h3>For the Adventurers</h3>
+          <p>Some see a car wash as routine. You see it as a celebration. A ritual that honors the road ahead and ensures your ride is ready for every adventure you have yet to take.</p>
+        </div>
+      </div>
+      <div class="jcard rv d4">
+        <div class="jcard-imgwrap">
+          <img src="https://www.aquasoniccarwash.com/wp-content/uploads/2024/10/Young_couple_selfie_desert-600x336.webp" alt="A cheerful couple in straw hats taking a selfie during a sunny road trip" loading="lazy">
+        </div>
+        <div class="jcard-body">
+          <div class="jtag">For the love of the road</div>
+          <h3>For the Love of the Road</h3>
+          <p>It's more than just a drive. It's a love affair with the journey. And for those who live for the road, every detail—every wash, every polish—is a commitment to the freedom that driving brings.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JEEP FULL-WIDTH BAND — zooms out as you scroll to it -->
+<div class="jeep-band" id="jeepBand">
+  <img src="https://www.aquasoniccarwash.com/wp-content/uploads/2024/10/Jeep_by_lake-600x336.webp" alt="An SUV parked near a lake at sunset, reflecting nature's beauty" loading="lazy">
+  <div class="jeep-overlay">
+    <div class="jeep-quote"><span>#fortheloveoftheroad</span></div>
+  </div>
+</div>
+
+<!-- ═══ LOCATION FINDER ═══ -->
+<section class="finder">
+  <div class="container">
+    <p class="sec-label rv" style="text-align:center">#fortheloveoftheroad</p>
+    <h2 class="sec-title rv" style="color:#fff;text-align:center;margin-top:6px">Find an AquaSonic car wash near you…<br><em style="color:var(--aqua)">it's just a click away!</em></h2>
+    <p class="sec-sub rv mx-auto t-center" style="color:rgba(255,255,255,.46);margin-top:0;margin-bottom:44px">Find an AquaSonic™ near you…</p>
+    <div class="finder-form rv">
+      <input type="text" class="finder-input" placeholder="Enter your Zip code">
+      <button class="finder-btn">Search</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WASH PACKAGES — drag carousel ═══ -->
+<section class="sec">
+  <div class="container">
+    <div class="pkg-hdr rv">
+      <p class="sec-label">Our Wash Packages</p>
+      <h2 class="sec-title">Industry-leading car washes in<br><em>three smart packages</em></h2>
+      <p class="drag-hint">← Drag to explore →</p>
+    </div>
+  </div>
+  <div class="carousel-wrap" id="pkgWrap">
+    <div class="carousel-track" id="pkgTrack">
+      <div class="pkg-card featured">
+        <div class="pkg-badge">Most Popular</div>
+        <div class="pkg-ico">✨</div>
+        <div class="pkg-label">UltimaWash™</div>
+        <h3 class="pkg-name">UltimaWash™</h3>
+        <div class="pkg-sub">Showroom Finish, Ultimate Care</div>
+        <p class="pkg-desc">Indulge your vehicle with our most advanced care package. Using nano-tech regeneration powered by ceramic, graphene, and next gen chemistry, the result is a flawless showroom finish. This is the ultimate in car care.</p>
+        <a href="#" class="pkg-link">Discover More →</a>
+      </div>
+      <div class="pkg-card">
+        <div class="pkg-ico">🔵</div>
+        <div class="pkg-label">ProWash™</div>
+        <h3 class="pkg-name">ProWash™</h3>
+        <div class="pkg-sub">Deep Clean, Lasting Protection</div>
+        <p class="pkg-desc">Experience a thorough clean with added ceramic protection. Includes premium surface treatments and AquaGloss™ tire shine for a long-lasting shine and durable finish.</p>
+        <a href="#" class="pkg-link">Discover More →</a>
+      </div>
+      <div class="pkg-card">
+        <div class="pkg-ico">💧</div>
+        <div class="pkg-label">LiteWash™</div>
+        <h3 class="pkg-name">LiteWash™</h3>
+        <div class="pkg-sub">Quick Clean, No Compromise</div>
+        <p class="pkg-desc">A fast and effective soap and water wash for when you need a refresh without the frills. Perfect for maintaining your car's appearance on the go. Available at select locations for a limited time.</p>
+        <a href="#" class="pkg-link">Discover More →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FREEDOMPASS ═══ -->
+<section class="sec sec-navy">
+  <div class="container">
+    <div class="fp-wrap">
+      <div class="fp-text rv">
+        <div class="fp-kicker">★ This isn't just a membership, it's complete freedom…</div>
+        <p class="sec-label">Welcome to</p>
+        <h2 class="sec-title" style="color:#fff;font-size:clamp(2.2rem,4vw,3.3rem)">FreedomPass™</h2>
+        <p class="sec-sub" style="color:rgba(255,255,255,.52)">Experience the ultimate car care with FreedomPass, AquaSonic's all-inclusive membership package. Enjoy unlimited washes, exclusive perks, and lightning-fast service, all at one unbeatable price. Click through to discover how easy it is to keep your car road-ready, every day.</p>
+        <a href="#" class="btn-primary" style="margin-top:36px">FreedomPass™</a>
+      </div>
+      <div class="fp-card rv d2">
+        <div class="fp-name">Freedom<span>Pass</span>™</div>
+        <div class="fp-tagline">America's Smartest Membership</div>
+        <ul class="fp-list">
+          <li>Unlimited washes every single day — no caps, no catches</li>
+          <li>Lightning-fast service with priority access lanes</li>
+          <li>Exclusive member-only perks and seasonal offers</li>
+          <li>One unbeatable monthly price — transparent, always</li>
+          <li>Ceramic protection and next-gen chemistry included</li>
+          <li>Use at any AquaSonic location nationwide</li>
+        </ul>
+        <a href="#" class="btn-primary">Join FreedomPass™</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SELFIE IMAGE + DOG VIDEO split -->
+<div class="media-split">
+  <div class="media-side">
+    <img src="https://www.aquasoniccarwash.com/wp-content/uploads/2024/10/Young_woman_selfie_party-600x338.webp" alt="Joyful Journeys Begin with AquaSonic" loading="lazy">
+  </div>
+  <div class="media-side">
+    <video autoplay muted loop playsinline
+      poster="https://www.aquasoniccarwash.com/wp-content/uploads/2024/10/Young_woman_selfie_party-600x338.webp">
+      <source src="https://www.aquasoniccarwash.com/wp-content/uploads/2024/12/dog-car-window.webm" type="video/webm">
+    </video>
+  </div>
+</div>
+
+<!-- ═══ APP DOWNLOAD ═══ -->
+<section class="sec sec-gray">
+  <div class="container">
+    <div class="app-inner">
+      <div class="rv">
+        <p class="sec-label">Feeling AquaSonic™</p>
+        <h2 class="sec-title">Get your first wash <em>free!</em></h2>
+        <p class="sec-sub" style="margin-bottom:32px">Download our app today and get started on your journey to a cleaner, shinier ride. Available on iOS and Android.</p>
+        <div class="app-badge">🎁 <span>Free wash</span> with your first app download</div>
+        <div class="store-btns">
+          <a href="https://apps.apple.com/us/app/aquasonic-car-wash/id6739219490" class="store-btn" target="_blank">
+            <span class="store-btn-ico">🍎</span>
+            <div class="store-btn-txt">
+              <small>Download on the</small>
+              <strong>App Store</strong>
+            </div>
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.aquasoniccarwash.app" class="store-btn" target="_blank">
+            <span class="store-btn-ico">▶</span>
+            <div class="store-btn-txt">
+              <small>Get it on</small>
+              <strong>Google Play</strong>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="phone-wrap rv d3">
+        <div class="phone">
+          <div class="phone-logo">Aqua<span>Sonic</span>™</div>
+          <div class="phone-sub">America's Smartest Car Wash</div>
+          <div class="phone-dots"><span></span><span></span><span></span></div>
+          <div class="phone-wave"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ NEWS CAROUSEL ═══ -->
+<section class="sec">
+  <div class="container">
+    <div class="news-hdr rv">
+      <div>
+        <p class="sec-label">Word on the Street</p>
+        <h2 class="sec-title">Get the lowdown on our latest news, events,<br><em>and all things AquaSonic.</em></h2>
+        <p class="drag-hint">← Drag to explore →</p>
+      </div>
+      <a href="#" class="btn-primary" style="flex-shrink:0;white-space:nowrap;align-self:flex-end">View All News</a>
+    </div>
+  </div>
+  <div class="carousel-wrap" id="newsWrap">
+    <div class="carousel-track" id="newsTrack">
+
+      <a href="#" class="news-card">
+        <img class="news-img" src="https://www.aquasoniccarwash.com/wp-content/uploads/2025/07/aquasonic-car-wash-new-port-richey-florida-exterior-600x338.webp" alt="AquaSonic NPR Grand Reopening" loading="lazy">
+        <div class="news-body"><div class="news-tag">Grand Launch · Blog</div><h3 class="news-title">AquaSonic NPR Grand Reopening: What's Happening &amp; When!</h3><div class="news-date">30th April 2026</div></div>
+      </a>
+
+      <a href="#" class="news-card">
+        <img class="news-img" src="https://www.aquasoniccarwash.com/wp-content/uploads/2026/04/aquasonic-car-wash-new-port-richey-florida-exterior-800x450-1-600x338.png" alt="AquaSonic TPA Grand Opening" loading="lazy">
+        <div class="news-body"><div class="news-tag">Grand Launch · Blog</div><h3 class="news-title">AquaSonic TPA Grand Opening: What's Happening &amp; When!</h3><div class="news-date">30th April 2026</div></div>
+      </a>
+
+      <a href="#" class="news-card">
+        <img class="news-img" src="https://www.aquasoniccarwash.com/wp-content/uploads/2026/03/aquasonic_new_port_richey_opening_soon_02-1-1-600x234.png" alt="Tampa Second Location" loading="lazy">
+        <div class="news-body"><div class="news-tag">Grand Launch · Article</div><h3 class="news-title">AquaSonic Car Wash Announces Grand Opening of Second Location in Tampa, Florida</h3><div class="news-date">26th March 2026</div></div>
+      </a>
+
+      <a href="#" class="news-card">
+        <img class="news-img" src="https://www.aquasoniccarwash.com/wp-content/uploads/2025/05/Untitled-design-21-600x338.png" alt="FoundersClub" loading="lazy">
+        <div class="news-body"><div class="news-tag">Grand Launch · Article</div><h3 class="news-title">Wash Like A Boss, Pay Like A Genius: The AquaSonic Tampa FoundersClub is Now On Sale!</h3><div class="news-date">15th December 2025</div></div>
+      </a>
+
+      <a href="#" class="news-card">
+        <img class="news-img" src="https://www.aquasoniccarwash.com/wp-content/uploads/2024/10/Woman_out_of_sunroof_viewing_sunset-600x336.webp" alt="Orlando" loading="lazy">
+        <div class="news-body"><div class="news-tag">Grand Launch · Article</div><h3 class="news-title">AquaSonic Car Wash Breaks Ground on Third Florida Location in Orlando</h3><div class="news-date">18th November 2025</div></div>
+      </a>
+
+      <a href="#" class="news-card">
+        <img class="news-img" src="https://www.aquasoniccarwash.com/wp-content/uploads/2025/06/AquaSonic_New_Port_Richey_Front_Elevation-600x338.webp" alt="NPR Opening" loading="lazy">
+        <div class="news-body"><div class="news-tag">News Update · Article</div><h3 class="news-title">New Car Wash, Who Dis? AquaSonic Is Opening in New Port Richey on June 25</h3><div class="news-date">12th June 2025</div></div>
+      </a>
+
+      <a href="#" class="news-card">
+        <img class="news-img" src="https://www.aquasoniccarwash.com/wp-content/uploads/2025/05/AquaSonic-New-Port-Richey-Selects-Charity-Partner-1-600x234.webp" alt="Charity" loading="lazy">
+        <div class="news-body"><div class="news-tag">Charity · Article</div><h3 class="news-title">AquaSonic &amp; Runaways Rescue: Washing Cars, Saving Lives</h3><div class="news-date">27th May 2025</div></div>
+      </a>
+
+      <a href="#" class="news-card">
+        <img class="news-img" src="https://www.aquasoniccarwash.com/wp-content/uploads/2025/05/Untitled-design-17-600x338.webp" alt="Dually Trucks" loading="lazy">
+        <div class="news-body"><div class="news-tag">Insight · Blog</div><h3 class="news-title">Is It Safe to Wash My Truck or Soft Top at AquaSonic? Absolutely. Here's Why.</h3><div class="news-date">14th May 2025</div></div>
+      </a>
+
+      <a href="#" class="news-card">
+        <img class="news-img" src="https://www.aquasoniccarwash.com/wp-content/uploads/2024/12/freedompass-unlimited-car-care-sunset-journey-600x234.webp" alt="FreedomPass" loading="lazy">
+        <div class="news-body"><div class="news-tag">Membership · Article</div><h3 class="news-title">The FreedomPass Revolution: Unlimited car care, unmatched value</h3><div class="news-date">13th December 2024</div></div>
+      </a>
+
+      <a href="#" class="news-card">
+        <img class="news-img" src="https://www.aquasoniccarwash.com/wp-content/uploads/2024/12/aquasonic-smart-molecule-technology-water-chemistry-innovation-600x234.webp" alt="Smart Molecules" loading="lazy">
+        <div class="news-body"><div class="news-tag">Science · Article</div><h3 class="news-title">AquaSonic's cutting-edge chemistry: Why smart molecules matter</h3><div class="news-date">4th December 2024</div></div>
+      </a>
+
+      <a href="#" class="news-card">
+        <img class="news-img" src="https://www.aquasoniccarwash.com/wp-content/uploads/2024/11/aquasonic-sustainability-clean-cars-protecting-planet-green-water-image-600x234.webp" alt="Sustainability" loading="lazy">
+        <div class="news-body"><div class="news-tag">Sustainability · Article</div><h3 class="news-title">AquaSonic's Sustainability Promise: Safe for Me, My Car &amp; the Planet</h3><div class="news-date">16th November 2024</div></div>
+      </a>
+
+      <a href="#" class="news-card">
+        <img class="news-img" src="https://www.aquasoniccarwash.com/wp-content/uploads/2024/10/aquasonic-evolution-car-care-blue-sports-car-light-trails.webp-600x234.webp" alt="Evolution" loading="lazy">
+        <div class="news-body"><div class="news-tag">Insight · Blog</div><h3 class="news-title">The evolution of car care: How AquaSonic is redefining the industry</h3><div class="news-date">24th October 2024</div></div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ THE DIFFERENCE ═══ -->
+<section class="sec sec-navy">
+  <div class="container">
+    <div class="diff-hdr rv">
+      <p class="sec-label">The AquaSonic™ Difference</p>
+      <h2 class="sec-title">Exceptional is our <em style="color:var(--aqua)">standard.</em></h2>
+      <p class="sec-sub">Five pillars that make AquaSonic unlike any other car wash on the planet.</p>
+    </div>
+    <div class="diff-grid">
+      <div class="diff-card rv d1">
+        <img class="diff-ico" src="https://www.aquasoniccarwash.com/wp-content/uploads/2024/11/Icon-speed.svg" alt="Speed" loading="lazy">
+        <div class="diff-label">Speed</div>
+        <h3 class="diff-title">Fast &amp; Convenient</h3>
+        <p class="diff-desc">Quick service, zero downtime, and ultra-fast washes. We'll get you in, out, and shining in no time.</p>
+      </div>
+      <div class="diff-card rv d2">
+        <img class="diff-ico" src="https://www.aquasoniccarwash.com/wp-content/uploads/2024/11/Icon-quality.svg" alt="Quality" loading="lazy">
+        <div class="diff-label">Quality</div>
+        <h3 class="diff-title">A Flawless Finish, Every Time</h3>
+        <p class="diff-desc">Unmatched cleaning power and a flawless finish. Your car has never looked this good.</p>
+      </div>
+      <div class="diff-card rv d3">
+        <img class="diff-ico" src="https://www.aquasoniccarwash.com/wp-content/uploads/2024/11/Icon-infinity.svg" alt="Value" loading="lazy">
+        <div class="diff-label">Value</div>
+        <h3 class="diff-title">A Smart Investment</h3>
+        <p class="diff-desc">Transparent pricing with everything included. Save more, get more, and experience a superior clean.</p>
+      </div>
+      <div class="diff-card rv d4">
+        <img class="diff-ico" src="https://www.aquasoniccarwash.com/wp-content/uploads/2024/11/Icon-thumbs_up.svg" alt="Culture" loading="lazy">
+        <div class="diff-label">Culture</div>
+        <h3 class="diff-title">The Best Customer Experience</h3>
+        <p class="diff-desc">Exceptional service from a team that cares. We make it easy, because you and your car deserve the best.</p>
+      </div>
+      <div class="diff-card rv d5">
+        <img class="diff-ico" src="https://www.aquasoniccarwash.com/wp-content/uploads/2024/11/Icon-safety.svg" alt="Safety" loading="lazy">
+        <div class="diff-label">Safety</div>
+        <h3 class="diff-title">For Me, My Car &amp; the Planet</h3>
+        <p class="diff-desc">Advanced technology ensures a safe wash for your car and a cleaner planet. We protect what matters most.</p>
+      </div>
+    </div>
+    <div class="t-center rv" style="margin-top:54px">
+      <a href="#" class="btn-ghost">Discover More</a>
+    </div>
+  </div>
+</section>
+
+<!-- HASHTAG DIVIDER -->
+<div class="hashtag-bar">#fortheloveoftheroad</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">Aqua<span>Sonic</span>™</div>
+        <p class="foot-tagline">America's Smartest Car Wash. Smart technology. Smarter chemistry. Unbeatable shine.</p>
+        <div class="socials">
+          <a href="https://www.linkedin.com/company/aquasoniccarwash/" class="soc" target="_blank">in</a>
+          <a href="https://www.instagram.com/aquasoniccarwash/" class="soc" target="_blank">ig</a>
+          <a href="https://www.facebook.com/aquasoniccarwashus/" class="soc" target="_blank">fb</a>
+          <a href="https://www.pinterest.com/aquasoniccarwash/" class="soc" target="_blank">pt</a>
+          <a href="https://www.tiktok.com/@aquasoniccarwash" class="soc" target="_blank">tt</a>
+          <a href="https://www.youtube.com/@aquasoniccarwash" class="soc" target="_blank">yt</a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#">Wash Packages</a></li>
+          <li><a href="#">FreedomPass™</a></li>
+          <li><a href="#">Locations</a></li>
+          <li><a href="#">Help &amp; Support</a></li>
+          <li><a href="#">Newsroom</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About AquaSonic</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Giving Back</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Invest</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">TikTok</a></li>
+          <li><a href="#">YouTube</a></li>
+          <li><a href="#">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p class="foot-copy">© 2026 AquaSonic. All rights reserved.</p>
+      <div class="foot-legal">
+        <a href="#">Privacy Notice</a>
+        <a href="#">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ TAMPA MODAL (auto-opens after 2.5s) ═══ -->
+<div class="modal-backdrop" id="tampaModal">
+  <div class="modal">
+    <button class="modal-close" id="tampaClose">✕</button>
+    <img class="modal-img" src="https://www.aquasoniccarwash.com/wp-content/uploads/2025/06/AquaSonic_New_Port_Richey_Front_Elevation-600x338.webp" alt="AquaSonic Tampa Now Open">
+    <div class="modal-body">
+      <div class="modal-tag">Tampa · Now Open!</div>
+      <h3 class="modal-title">AquaSonic Tampa — Now Open!</h3>
+      <p class="modal-lead">Buckle up for the best party of 2026! AquaSonic™ Tampa is open, just south of Temple Terrace on N 56th. Join us for 18 days of unlimited free washes, epic giveaways, and fun surprises!</p>
+      <div class="modal-btns">
+        <a href="#" class="btn-primary">Learn More</a>
+        <button onclick="document.getElementById('tampaModal').classList.remove('open')" style="background:transparent;border:1.5px solid rgba(255,255,255,.3);color:rgba(255,255,255,.68);padding:15px 24px;border-radius:3px;font-family:Montserrat,sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer">Maybe Later</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ NEWSLETTER FORM MODAL ═══ -->
+<div class="fmodal" id="nlModal">
+  <div class="fbox">
+    <button class="fbox-close" id="nlClose">✕</button>
+    <h3>Keep me in the loop.</h3>
+    <p>Register your interest to be the first to know when we open an AquaSonic near you, and unlock access to our exclusive services and membership perks.</p>
+    <div class="frow">
+      <div class="ffield"><label>First Name</label><input type="text" placeholder="First Name"></div>
+      <div class="ffield"><label>Last Name</label><input type="text" placeholder="Last Name"></div>
+    </div>
+    <div class="frow full"><div class="ffield"><label>Email</label><input type="email" placeholder="your@email.com"></div></div>
+    <div class="fcheck"><input type="checkbox" id="emailUp"><label for="emailUp">Sign me up for email updates</label></div>
+    <div class="fcheck"><input type="checkbox" id="privNl"><label for="privNl">By submitting my information, I agree to AquaSonic securely storing and processing it. Full details in our <a href="#">Privacy Policy</a>.</label></div>
+    <button class="fsub">Register</button>
+  </div>
+</div>
+
+<!-- ═══ CONTACT FORM MODAL ═══ -->
+<div class="fmodal" id="ctModal">
+  <div class="fbox">
+    <button class="fbox-close" id="ctClose">✕</button>
+    <h3>Still need help?</h3>
+    <p>Can't find what you need? We're here to help—just fill out the form below.</p>
+    <div class="frow">
+      <div class="ffield"><label>First Name</label><input type="text" placeholder="First Name"></div>
+      <div class="ffield"><label>Last Name</label><input type="text" placeholder="Last Name"></div>
+    </div>
+    <div class="frow full"><div class="ffield"><label>Email</label><input type="email" placeholder="your@email.com"></div></div>
+    <div class="frow full"><div class="ffield"><label>Subject</label><input type="text" placeholder="Subject"></div></div>
+    <div class="frow full"><div class="ffield"><label>Message</label><textarea placeholder="Your message…"></textarea></div></div>
+    <div class="fcheck"><input type="checkbox" id="privCt"><label for="privCt">By submitting, I agree to AquaSonic securely storing and processing it. Full details in our <a href="#">Privacy Policy</a>.</label></div>
+    <button class="fsub">Submit Enquiry</button>
+  </div>
+</div>
+
+<!-- STICKY BOTTOM BAR -->
+<div class="sticky-bar" id="stickyBar">
+  <p class="sticky-bar-txt"><strong>AquaSonic Tampa is now open!</strong> Get your first wash free when you download the app. 🎉</p>
+  <div class="sticky-bar-actions">
+    <a href="#" class="btn-primary" style="padding:10px 22px;font-size:.72rem">Get the App</a>
+    <button class="bar-dismiss" id="barDismiss">✕</button>
+  </div>
+</div>
+
+<script>
+/* ─── Header: transparent → solid on scroll ─── */
+const hdr = document.getElementById('site-header');
+function tickHeader(){ hdr.classList.toggle('scrolled', window.scrollY > 50) }
+window.addEventListener('scroll', tickHeader, {passive:true});
+tickHeader();
+
+/* ─── Mobile burger / drawer ─── */
+const burger = document.getElementById('burgerBtn');
+const mob    = document.getElementById('mobMenu');
+burger.addEventListener('click', () => {
+  burger.classList.toggle('open');
+  mob.classList.toggle('open');
+  document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
+});
+
+/* ─── Scroll reveal (IntersectionObserver) ─── */
+const rvEls = document.querySelectorAll('.rv');
+new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('vis') });
+}, {threshold: .12}).observe
+// pass each element
+; rvEls.forEach(el => new IntersectionObserver((ent) => {
+  ent.forEach(e => { if(e.isIntersecting) e.target.classList.add('vis') });
+}, {threshold: .1}).observe(el));
+
+/* ─── Jeep band: zoom-out on entry ─── */
+const jeep = document.getElementById('jeepBand');
+new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) jeep.classList.add('zoomed') });
+}, {threshold: .1}).observe(jeep);
+
+/* ─── Drag-scroll carousel ─── */
+function dragCarousel(wrapId, trackId) {
+  const wrap  = document.getElementById(wrapId);
+  const track = document.getElementById(trackId);
+  if (!wrap || !track) return;
+
+  let down = false, startX = 0, baseX = 0;
+
+  const clamp = (v) => {
+    const max = track.scrollWidth - wrap.clientWidth;
+    return Math.max(0, Math.min(v, max));
+  };
+  const applyX = (x) => { track.style.transform = `translateX(-${x}px)`; wrap._x = x; };
+
+  wrap.addEventListener('mousedown',  e => { down = true; startX = e.pageX; baseX = wrap._x || 0; wrap.style.cursor='grabbing'; e.preventDefault(); });
+  document.addEventListener('mouseup', () => { down = false; wrap.style.cursor='grab'; });
+  document.addEventListener('mousemove', e => {
+    if (!down) return;
+    applyX(clamp(baseX - (e.pageX - startX) * 1.3));
+  });
+
+  let tStartX = 0, tBaseX = 0;
+  wrap.addEventListener('touchstart',  e => { tStartX = e.touches[0].pageX; tBaseX = wrap._x || 0; }, {passive:true});
+  wrap.addEventListener('touchmove',   e => { applyX(clamp(tBaseX - (e.touches[0].pageX - tStartX))); }, {passive:true});
+}
+dragCarousel('pkgWrap',  'pkgTrack');
+dragCarousel('newsWrap', 'newsTrack');
+
+/* ─── Tampa modal auto-open ─── */
+const tampaModal = document.getElementById('tampaModal');
+setTimeout(() => tampaModal.classList.add('open'), 2500);
+document.getElementById('tampaClose').addEventListener('click', () => tampaModal.classList.remove('open'));
+tampaModal.addEventListener('click', e => { if(e.target === tampaModal) tampaModal.classList.remove('open'); });
+
+/* ─── Form modals ─── */
+['nl','ct'].forEach(id => {
+  const m = document.getElementById(id+'Modal');
+  document.getElementById(id+'Close').addEventListener('click', () => m.classList.remove('open'));
+  m.addEventListener('click', e => { if(e.target === m) m.classList.remove('open'); });
+});
+
+/* ─── Sticky bottom bar ─── */
+const stickyBar   = document.getElementById('stickyBar');
+const barDismiss  = document.getElementById('barDismiss');
+let barDone = false;
+window.addEventListener('scroll', () => {
+  if (!barDone && window.scrollY > 700) { stickyBar.classList.add('show'); barDone = true; }
+}, {passive:true});
+barDismiss.addEventListener('click', () => stickyBar.classList.remove('show'));
+
+/* ─── Escape closes all modals ─── */
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-backdrop.open, .fmodal.open')
+      .forEach(m => m.classList.remove('open'));
+  }
+});
+</script>
+</body>
+</html>

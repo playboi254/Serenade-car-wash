@@ -32,26 +32,60 @@ const JOURNEY_CARDS = [
 ];
 
 const NEWS_CARDS = [
-  { img: "https://www.aquasoniccarwash.com/wp-content/uploads/2025/07/aquasonic-car-wash-new-port-richey-florida-exterior-600x338.webp", tag: "Grand Launch · Blog", title: "AquaSonic NPR Grand Reopening: What's Happening & When!", date: "30th April 2026" },
-  { img: "https://www.aquasoniccarwash.com/wp-content/uploads/2026/04/aquasonic-car-wash-new-port-richey-florida-exterior-800x450-1-600x338.png", tag: "Grand Launch · Blog", title: "AquaSonic TPA Grand Opening: What's Happening & When!", date: "30th April 2026" },
-  { img: "https://www.aquasoniccarwash.com/wp-content/uploads/2026/03/aquasonic_new_port_richey_opening_soon_02-1-1-600x234.png", tag: "Grand Launch · Article", title: "AquaSonic Car Wash Announces Grand Opening of Second Location in Tampa, Florida", date: "26th March 2026" },
-  { img: "https://www.aquasoniccarwash.com/wp-content/uploads/2025/05/Untitled-design-21-600x338.png", tag: "Grand Launch · Article", title: "Wash Like A Boss, Pay Like A Genius: The AquaSonic Tampa FoundersClub is Now On Sale!", date: "15th December 2025" },
-  { img: "https://www.aquasoniccarwash.com/wp-content/uploads/2024/10/Woman_out_of_sunroof_viewing_sunset-600x336.webp", tag: "Grand Launch · Article", title: "AquaSonic Car Wash Breaks Ground on Third Florida Location in Orlando", date: "18th November 2025" },
-  { img: "https://www.aquasoniccarwash.com/wp-content/uploads/2025/06/AquaSonic_New_Port_Richey_Front_Elevation-600x338.webp", tag: "News Update · Article", title: "New Car Wash, Who Dis? AquaSonic Is Opening in New Port Richey on June 25", date: "12th June 2025" },
-  { img: "https://www.aquasoniccarwash.com/wp-content/uploads/2025/05/AquaSonic-New-Port-Richey-Selects-Charity-Partner-1-600x234.webp", tag: "Charity · Article", title: "AquaSonic & Runaways Rescue: Washing Cars, Saving Lives", date: "27th May 2025" },
-  { img: "https://www.aquasoniccarwash.com/wp-content/uploads/2025/05/Untitled-design-17-600x338.webp", tag: "Insight · Blog", title: "Is It Safe to Wash My Truck or Soft Top at AquaSonic? Absolutely. Here's Why.", date: "14th May 2025" },
+  {
+    img: "https://www.aquasoniccarwash.com/wp-content/uploads/2025/05/Untitled-design-21-600x338.png",
+    tag: "Grand Launch · Article",
+    title: "Wash Like A Boss, Pay Like A Genius: The Serenade Wash FoundersClub is Now On Sale!",
+    date: "15th December 2025",
+  },
 ];
 
 const DIFF_CARDS = [
-  { ico: "⚗️", label: "Chemistry", title: "Next-Gen Chemistry", desc: "Proprietary nano-tech formulas infused with ceramic and graphene for a finish that lasts far longer than traditional soaps." },
-  { ico: "🤖", label: "Technology", title: "Smart Technology", desc: "Our AI-powered wash system reads your vehicle's profile and delivers a precisely calibrated clean, every time." },
+  { ico: "⚗️", label: "Chemistry", title: "Next-Gen Chemistry", desc: "Proprietary formulas for a finish that lasts far longer than traditional soaps." },
+  { ico: "🤖", label: "Technology", title: "Smart Technology", desc: "Our system delivers a precisely calibrated clean, every time." },
   { ico: "💧", label: "Water", title: "Eco-Conscious Water Use", desc: "We reclaim and recycle over 90% of our water. Keeping your car clean shouldn't cost the planet." },
-  { ico: "⚡", label: "Speed", title: "Lightning-Fast Service", desc: "From entry to exit in minutes. FreedomPass members get priority lanes for zero wait-time access." },
-  { ico: "🌍", label: "Community", title: "Giving Back", desc: "Every wash contributes to our community fund. We partner with local charities to make a difference beyond the drive-through." },
+  { ico: "⚡", label: "Speed", title: "Lightning-Fast Service", desc: "From entry to exit in minutes. Freedom Pass members get priority access for zero wait-time." },
+  { ico: "🌍", label: "Community", title: "Giving Back", desc: "Every wash contributes to our community fund. We partner with local initiatives to make a difference." },
 ];
 
-const AQUA_RIBBON = ["#fortheloveof", "theroad", "newportrichey", "tampa", "jacksonville", "portstlucie", "lakeworth", "sarasota", "stpete", "bradenton", "orlando", "charleston", "ocoee", "davenport"];
-const NAVY_RIBBON = ["smart technology", "smarter chemistry", "unbeatable shine", "america's smartest car wash", "nano-tech regeneration", "ceramic protection", "freedompass™", "ultimawash™"];
+const AQUA_RIBBON = ["#fortheloveoftheroad", "uthiru", "nairobi", "westlands", "karen", "lavington", "kilimani", "runda", "gigiri", "parklands", "muthaiga", "kileleshwa", "riverside", "upperhill"];
+const NAVY_RIBBON = ["smart technology", "smarter chemistry", "unbeatable shine", "uthiru's smartest car wash", "professional care", "interior & exterior", "freedom pass", "ultimate wash"];
+
+const PACKAGES = [
+  {
+    featured: true,
+    badge: "Most Popular",
+    ico: "✨",
+    label: "Ultimate Wash",
+    name: "Ultimate Wash",
+    sub: "Showroom Finish, Ultimate Care",
+    price: "KSh 450",
+    desc: "Complete premium wash package including interior cleaning, exterior cleaning, mats, tires, and rims. Full vehicle detailing available two times a day.",
+    features: ["Interior wash", "Exterior wash", "Mats cleaning", "Tires & rims cleaning", "Full body wash", "Available two times a day"],
+  },
+  {
+    featured: false,
+    badge: null,
+    ico: "🔵",
+    label: "Pro Wash",
+    name: "Pro Wash",
+    sub: "Deep Clean, Lasting Protection",
+    price: "KSh 300",
+    desc: "Professional daily wash package covering interior cleaning, exterior cleaning, mats, and tires once a day.",
+    features: ["Interior wash", "Exterior wash", "Mats cleaning", "Tires cleaning", "One wash per day"],
+  },
+  {
+    featured: false,
+    badge: null,
+    ico: "💧",
+    label: "Lite Wash",
+    name: "Lite Wash",
+    sub: "Quick Clean, No Compromise",
+    price: "KSh 100",
+    desc: "Affordable single-service wash option for customers who only need interior or exterior cleaning.",
+    features: ["Interior wash only OR", "Exterior wash only", "Single service package", "Affordable quick cleaning"],
+  },
+];
 
 function useDragCarousel(ref: React.RefObject<HTMLDivElement | null>) {
   const isDown = useRef(false);
@@ -125,17 +159,17 @@ export default function Home() {
             <path d="M7 26 Q13 14 21 21 Q29 28 35 16" stroke="#00c2e0" strokeWidth="2.2" fill="none" strokeLinecap="round" />
             <path d="M7 30 Q13 18 21 25 Q29 32 35 20" stroke="rgba(0,194,224,.35)" strokeWidth="1.6" fill="none" strokeLinecap="round" />
           </svg>
-          <span className="hdr-wordmark">Aqua<span>Sonic</span>™</span>
+          <span className="hdr-wordmark">Serenade<span> Wash</span></span>
         </a>
 
         <nav className="hdr-nav">
           <a href="#">Wash Packages</a>
-          <a href="#">FreedomPass™</a>
+          <a href="#">Freedom Pass</a>
           <a href="#">Locations</a>
           <div className="has-drop">
             <a href="#">Company</a>
             <div className="drop">
-              <a href="#">About AquaSonic</a>
+              <a href="#">About Serenade Wash</a>
               <a href="#">Sustainability</a>
               <a href="#">Newsroom</a>
               <a href="#">Careers</a>
@@ -156,9 +190,9 @@ export default function Home() {
       <div className={`mob-menu${mobileOpen ? " open" : ""}`}>
         <a href="#" onClick={() => setMobileOpen(false)}>Home</a>
         <a href="#" onClick={() => setMobileOpen(false)}>Wash Packages</a>
-        <a href="#" onClick={() => setMobileOpen(false)}>FreedomPass™</a>
+        <a href="#" onClick={() => setMobileOpen(false)}>Freedom Pass</a>
         <a href="#" onClick={() => setMobileOpen(false)}>Locations</a>
-        <a href="#" onClick={() => setMobileOpen(false)}>About AquaSonic</a>
+        <a href="#" onClick={() => setMobileOpen(false)}>About Serenade Wash</a>
         <a href="#" onClick={() => setMobileOpen(false)}>Sustainability</a>
         <a href="#" onClick={() => setMobileOpen(false)}>Newsroom</a>
         <a href="#" onClick={() => setMobileOpen(false)}>Careers</a>
@@ -181,11 +215,14 @@ export default function Home() {
         <div className="hero-overlay" />
         <div className="hero-content">
           <p className="hero-eyebrow">Start Your Journey</p>
-          <h1>Welcome to<br /><em>AquaSonic™</em></h1>
-          <p className="hero-sub">America's Smartest Car Wash:<br />Smart technology. Smarter chemistry. Unbeatable shine.</p>
+          <h1>Welcome to<br /><em>Serenade Wash</em></h1>
+          <p className="hero-sub">
+            Uthiru's Smartest Car Wash<br />
+            Professional interior and exterior car care with affordable wash plans for every customer.
+          </p>
           <div className="hero-ctas">
-            <a href="#" className="btn-primary">Memberships</a>
-            <a href="#" className="btn-ghost">Locations</a>
+            <a href="#" className="btn-primary">Membership</a>
+            <a href="#" className="btn-ghost">Book an Appointment</a>
           </div>
         </div>
         <div className="hero-scroll">
@@ -250,13 +287,13 @@ export default function Home() {
         <div className="container">
           <p className="sec-label rv" style={{ textAlign: "center" }}>#fortheloveoftheroad</p>
           <h2 className="sec-title rv" style={{ color: "#fff", textAlign: "center", marginTop: "6px" }}>
-            Find an AquaSonic car wash near you…<br /><em style={{ color: "var(--aqua)" }}>it's just a click away!</em>
+            Find a Serenade Wash near you…<br /><em style={{ color: "var(--aqua)" }}>it's just a click away!</em>
           </h2>
           <p className="sec-sub rv mx-auto t-center" style={{ color: "rgba(255,255,255,.46)", marginTop: "0", marginBottom: "44px" }}>
-            Find an AquaSonic™ near you…
+            Find a Serenade Wash near you…
           </p>
           <div className="finder-form rv">
-            <input type="text" className="finder-input" placeholder="Enter your Zip code" />
+            <input type="text" className="finder-input" placeholder="Enter your location or area" />
             <button className="finder-btn">Search</button>
           </div>
         </div>
@@ -278,31 +315,23 @@ export default function Home() {
           {...pkgDrag}
         >
           <div className="carousel-track">
-            <div className="pkg-card featured">
-              <div className="pkg-badge">Most Popular</div>
-              <div className="pkg-ico">✨</div>
-              <div className="pkg-label">UltimaWash™</div>
-              <h3 className="pkg-name">UltimaWash™</h3>
-              <div className="pkg-sub">Showroom Finish, Ultimate Care</div>
-              <p className="pkg-desc">Indulge your vehicle with our most advanced care package. Using nano-tech regeneration powered by ceramic, graphene, and next gen chemistry, the result is a flawless showroom finish. This is the ultimate in car care.</p>
-              <a href="#" className="pkg-link">Discover More →</a>
-            </div>
-            <div className="pkg-card">
-              <div className="pkg-ico">🔵</div>
-              <div className="pkg-label">ProWash™</div>
-              <h3 className="pkg-name">ProWash™</h3>
-              <div className="pkg-sub">Deep Clean, Lasting Protection</div>
-              <p className="pkg-desc">Experience a thorough clean with added ceramic protection. Includes premium surface treatments and AquaGloss™ tire shine for a long-lasting shine and durable finish.</p>
-              <a href="#" className="pkg-link">Discover More →</a>
-            </div>
-            <div className="pkg-card">
-              <div className="pkg-ico">💧</div>
-              <div className="pkg-label">LiteWash™</div>
-              <h3 className="pkg-name">LiteWash™</h3>
-              <div className="pkg-sub">Quick Clean, No Compromise</div>
-              <p className="pkg-desc">A fast and effective soap and water wash for when you need a refresh without the frills. Perfect for maintaining your car's appearance on the go. Available at select locations for a limited time.</p>
-              <a href="#" className="pkg-link">Discover More →</a>
-            </div>
+            {PACKAGES.map((pkg, i) => (
+              <div key={i} className={`pkg-card${pkg.featured ? " featured" : ""}`}>
+                {pkg.badge && <div className="pkg-badge">{pkg.badge}</div>}
+                <div className="pkg-ico">{pkg.ico}</div>
+                <div className="pkg-label">{pkg.label}</div>
+                <h3 className="pkg-name">{pkg.name}</h3>
+                <div className="pkg-sub">{pkg.sub}</div>
+                <div className="pkg-price">{pkg.price}</div>
+                <p className="pkg-desc">{pkg.desc}</p>
+                <ul className="pkg-features">
+                  {pkg.features.map((f, fi) => (
+                    <li key={fi}>{f}</li>
+                  ))}
+                </ul>
+                <a href="#" className="pkg-link">Book Now →</a>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -314,24 +343,24 @@ export default function Home() {
             <div className="fp-text rv">
               <div className="fp-kicker">★ This isn't just a membership, it's complete freedom…</div>
               <p className="sec-label">Welcome to</p>
-              <h2 className="sec-title" style={{ color: "#fff", fontSize: "clamp(2.2rem,4vw,3.3rem)" }}>FreedomPass™</h2>
+              <h2 className="sec-title" style={{ color: "#fff", fontSize: "clamp(2.2rem,4vw,3.3rem)" }}>Freedom Pass</h2>
               <p className="sec-sub" style={{ color: "rgba(255,255,255,.52)" }}>
-                Experience the ultimate car care with FreedomPass, AquaSonic's all-inclusive membership package. Enjoy unlimited washes, exclusive perks, and lightning-fast service, all at one unbeatable price. Click through to discover how easy it is to keep your car road-ready, every day.
+                Get the Pro Wash plan for one full week at only KSh 1,300. Designed for customers who want consistent daily cleaning at an affordable price.
               </p>
-              <a href="#" className="btn-primary" style={{ marginTop: "36px" }}>FreedomPass™</a>
+              <a href="#" className="btn-primary" style={{ marginTop: "36px" }}>Freedom Pass</a>
             </div>
             <div className="fp-card rv d2">
-              <div className="fp-name">Freedom<span>Pass</span>™</div>
-              <div className="fp-tagline">America's Smartest Membership</div>
+              <div className="fp-name">Freedom<span> Pass</span></div>
+              <div className="fp-tagline">Uthiru's Smartest Membership</div>
               <ul className="fp-list">
-                <li>Unlimited washes every single day — no caps, no catches</li>
-                <li>Lightning-fast service with priority access lanes</li>
-                <li>Exclusive member-only perks and seasonal offers</li>
-                <li>One unbeatable monthly price — transparent, always</li>
-                <li>Ceramic protection and next-gen chemistry included</li>
-                <li>Use at any AquaSonic location nationwide</li>
+                <li>Pro Wash access for 1 week</li>
+                <li>Daily interior cleaning</li>
+                <li>Daily exterior cleaning</li>
+                <li>Mats &amp; tires included</li>
+                <li>Affordable weekly package — KSh 1,300</li>
+                <li>Use at any Serenade Wash location</li>
               </ul>
-              <a href="#" className="btn-primary">Join FreedomPass™</a>
+              <a href="#" className="btn-primary">Join Freedom Pass</a>
             </div>
           </div>
         </div>
@@ -340,7 +369,7 @@ export default function Home() {
       {/* MEDIA SPLIT */}
       <div className="media-split">
         <div className="media-side">
-          <img src="https://www.aquasoniccarwash.com/wp-content/uploads/2024/10/Young_woman_selfie_party-600x338.webp" alt="Joyful Journeys Begin with AquaSonic" loading="lazy" />
+          <img src="https://www.aquasoniccarwash.com/wp-content/uploads/2024/10/Young_woman_selfie_party-600x338.webp" alt="Joyful Journeys Begin with Serenade Wash" loading="lazy" />
         </div>
         <div className="media-side">
           <video
@@ -360,7 +389,7 @@ export default function Home() {
         <div className="container">
           <div className="app-inner">
             <div className="rv">
-              <p className="sec-label">Feeling AquaSonic™</p>
+              <p className="sec-label">Feeling Serenade Wash</p>
               <h2 className="sec-title">Get your first wash <em>free!</em></h2>
               <p className="sec-sub" style={{ marginBottom: "32px" }}>Download our app today and get started on your journey to a cleaner, shinier ride. Available on iOS and Android.</p>
               <div className="app-badge">🎁 <span>Free wash</span> with your first app download</div>
@@ -380,11 +409,27 @@ export default function Home() {
                   </div>
                 </a>
               </div>
+              <div style={{ marginTop: "28px", display: "flex", gap: "18px", flexWrap: "wrap" }}>
+                <a href="tel:0115566775" className="store-btn">
+                  <span className="store-btn-ico">📞</span>
+                  <div className="store-btn-txt">
+                    <small>Call us</small>
+                    <strong>0115566775</strong>
+                  </div>
+                </a>
+                <a href="https://wa.me/254115566775" className="store-btn" target="_blank" rel="noreferrer">
+                  <span className="store-btn-ico">💬</span>
+                  <div className="store-btn-txt">
+                    <small>WhatsApp</small>
+                    <strong>0115566775</strong>
+                  </div>
+                </a>
+              </div>
             </div>
             <div className="phone-wrap rv d3">
               <div className="phone">
-                <div className="phone-logo">Aqua<span>Sonic</span>™</div>
-                <div className="phone-sub">America's Smartest Car Wash</div>
+                <div className="phone-logo">Serenade<span> Wash</span></div>
+                <div className="phone-sub">Uthiru's Smartest Car Wash</div>
                 <div className="phone-dots"><span /><span /><span /></div>
                 <div className="phone-wave" />
               </div>
@@ -399,8 +444,7 @@ export default function Home() {
           <div className="news-hdr rv">
             <div>
               <p className="sec-label">Word on the Street</p>
-              <h2 className="sec-title">Get the lowdown on our latest news, events,<br /><em>and all things AquaSonic.</em></h2>
-              <p className="drag-hint">← Drag to explore →</p>
+              <h2 className="sec-title">Get the lowdown on our latest news, events,<br /><em>and all things Serenade Wash.</em></h2>
             </div>
             <a href="#" className="btn-primary" style={{ flexShrink: 0, whiteSpace: "nowrap", alignSelf: "flex-end" }}>View All News</a>
           </div>
@@ -430,9 +474,9 @@ export default function Home() {
       <section className="sec sec-dark">
         <div className="container">
           <div className="diff-hdr rv">
-            <p className="sec-label">The AquaSonic Difference</p>
-            <h2 className="sec-title">Why America's most passionate<br /><em style={{ color: "var(--aqua)" }}>drivers choose us.</em></h2>
-            <p className="sec-sub">Five pillars that set AquaSonic apart from every other car wash on the road.</p>
+            <p className="sec-label">The Serenade Wash Difference</p>
+            <h2 className="sec-title">Why Uthiru's most passionate<br /><em style={{ color: "var(--aqua)" }}>customers choose us.</em></h2>
+            <p className="sec-sub">Five pillars that set Serenade Wash apart from every other car wash on the road.</p>
           </div>
           <div className="diff-grid">
             {DIFF_CARDS.map((card, i) => (
@@ -457,8 +501,8 @@ export default function Home() {
         <div className="container">
           <div className="foot-grid">
             <div className="foot-col">
-              <div className="foot-logo">Aqua<span>Sonic</span>™</div>
-              <p className="foot-tagline">America's Smartest Car Wash. Smart technology. Smarter chemistry. Unbeatable shine. #fortheloveoftheroad</p>
+              <div className="foot-logo">Serenade<span> Wash</span></div>
+              <p className="foot-tagline">Uthiru's Smartest Car Wash. Professional interior and exterior car care with affordable plans for every customer. #fortheloveoftheroad</p>
               <div className="socials">
                 <a href="#" className="soc">f</a>
                 <a href="#" className="soc">in</a>
@@ -466,21 +510,26 @@ export default function Home() {
                 <a href="#" className="soc">yt</a>
                 <a href="#" className="soc">ig</a>
               </div>
+              <div style={{ marginTop: "20px" }}>
+                <div style={{ fontSize: ".72rem", color: "rgba(255,255,255,.3)", marginBottom: "6px" }}>📞 <a href="tel:0115566775" style={{ color: "rgba(255,255,255,.5)" }}>0115566775</a></div>
+                <div style={{ fontSize: ".72rem", color: "rgba(255,255,255,.3)", marginBottom: "6px" }}>✉️ <a href="mailto:bowambura123@gmail.com" style={{ color: "rgba(255,255,255,.5)" }}>bowambura123@gmail.com</a></div>
+                <div style={{ fontSize: ".72rem", color: "rgba(255,255,255,.3)" }}>💬 <a href="https://wa.me/254115566775" target="_blank" rel="noreferrer" style={{ color: "rgba(255,255,255,.5)" }}>WhatsApp: 0115566775</a></div>
+              </div>
             </div>
             <div className="foot-col">
               <h4>Car Wash</h4>
               <ul>
                 <li><a href="#">Wash Packages</a></li>
-                <li><a href="#">UltimaWash™</a></li>
-                <li><a href="#">ProWash™</a></li>
-                <li><a href="#">LiteWash™</a></li>
-                <li><a href="#">FreedomPass™</a></li>
+                <li><a href="#">Ultimate Wash — KSh 450</a></li>
+                <li><a href="#">Pro Wash — KSh 300</a></li>
+                <li><a href="#">Lite Wash — KSh 100</a></li>
+                <li><a href="#">Freedom Pass — KSh 1,300/wk</a></li>
               </ul>
             </div>
             <div className="foot-col">
               <h4>Company</h4>
               <ul>
-                <li><a href="#">About AquaSonic</a></li>
+                <li><a href="#">About Serenade Wash</a></li>
                 <li><a href="#">Sustainability</a></li>
                 <li><a href="#">Newsroom</a></li>
                 <li><a href="#">Careers</a></li>
@@ -494,13 +543,37 @@ export default function Home() {
                 <li><a href="#">Help Centre</a></li>
                 <li><a href="#">FAQs</a></li>
                 <li><a href="#">Locations</a></li>
-                <li><a href="#">App Download</a></li>
+                <li><a href="#">Book an Appointment</a></li>
                 <li><a href="#">Accessibility</a></li>
               </ul>
             </div>
           </div>
+
+          {/* DEVELOPER CREDIT */}
+          <div className="dev-credit rv">
+            <div className="dev-credit-inner">
+              <img
+                src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://barrackwambura-ec7h.vercel.app/&bgcolor=0a1628&color=00c2e0&margin=8"
+                alt="Developer QR Code"
+                className="dev-qr"
+              />
+              <div className="dev-info">
+                <div className="dev-label">Designed &amp; Built by</div>
+                <a
+                  href="https://barrackwambura-ec7h.vercel.app/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="dev-name"
+                >
+                  Barrack Rabuku
+                </a>
+                <div className="dev-sub">Scan the QR code to view portfolio</div>
+              </div>
+            </div>
+          </div>
+
           <div className="foot-bottom">
-            <div className="foot-copy">© 2026 AquaSonic Car Wash. All rights reserved.</div>
+            <div className="foot-copy">© 2026 Serenade Wash. All rights reserved.</div>
             <div className="foot-legal">
               <a href="#">Privacy Policy</a>
               <a href="#">Terms of Use</a>
@@ -514,7 +587,7 @@ export default function Home() {
       {!stickyDismissed && (
         <div className={`sticky-bar${showSticky ? " show" : ""}`}>
           <div className="sticky-bar-txt">
-            <strong>Join FreedomPass™</strong> — Unlimited washes from just $29.99/mo. First month free for new members.
+            <strong>Join Freedom Pass</strong> — Pro Wash access for a full week at just KSh 1,300. Book today.
           </div>
           <div className="sticky-bar-actions">
             <a href="#" className="btn-primary" style={{ padding: "10px 28px" }}>Join Now</a>

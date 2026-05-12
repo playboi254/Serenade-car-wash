@@ -1,0 +1,268 @@
+# Serenade Wash Website Update Instructions
+
+## IMPORTANT
+
+* Do NOT redesign the website.
+* Do NOT change the layout, structure, animations, spacing, typography, or overall visual identity.
+* ONLY replace and update the content while preserving the current design exactly as it is.
+* Keep all existing sections and styling unless specifically instructed otherwise.
+
+---
+
+# GLOBAL BRANDING CHANGES
+
+Replace all references of:
+
+* AquaSonic™ → Serenade Wash
+* AquaSonic → Serenade Wash
+* America's → Uthiru's
+* drivers → customers (where appropriate)
+
+These replacements should apply across the WHOLE WEBSITE.
+
+Examples:
+
+* “America’s most passionate drivers choose us.”
+  should become:
+  “Uthiru’s most passionate customers choose us.”
+
+* “Find an AquaSonic car wash near you...”
+  should become:
+  “Find a Serenade Wash near you...”
+
+---
+
+# HERO SECTION UPDATES
+
+## Main Heading
+
+Replace:
+"Welcome to AquaSonic™"
+
+With:
+"Welcome to Serenade Wash"
+
+---
+
+## Hero Subheading
+
+Replace existing hero text with:
+
+"Uthiru’s Smartest Car Wash"
+
+Optional supporting text underneath:
+
+"Professional interior and exterior car care with affordable wash plans for every customer."
+
+---
+
+## HERO BUTTONS
+
+Replace current buttons with:
+
+### Button 1
+
+Text:
+"Membership"
+
+### Button 2
+
+Replace the current “Locations” button with:
+"Book an Appointment"
+
+Do not change button styling.
+Keep the same hover effects and animations.
+
+---
+
+# SERVICES / WASH PACKAGES SECTION
+
+Keep the existing 3-card package layout.
+Only replace the content.
+
+---
+
+## PLAN 1 — ULTIMATE WASH
+
+Title:
+"Ultimate Wash"
+
+Price:
+"KSh 450"
+
+Description:
+"Complete premium wash package including interior cleaning, exterior cleaning, mats, tires, and rims. Full vehicle detailing available two times a day."
+
+Features:
+
+* Interior wash
+* Exterior wash
+* Mats cleaning
+* Tires & rims cleaning
+* Full body wash
+* Available two times a day
+
+---
+
+## PLAN 2 — PRO WASH
+
+Title:
+"Pro Wash"
+
+Price:
+"KSh 300"
+
+Description:
+"Professional daily wash package covering interior cleaning, exterior cleaning, mats, and tires once a day."
+
+Features:
+
+* Interior wash
+* Exterior wash
+* Mats cleaning
+* Tires cleaning
+* One wash per day
+
+---
+
+## PLAN 3 — LITE WASH
+
+Title:
+"Lite Wash"
+
+Price:
+"KSh 100"
+
+Description:
+"Affordable single-service wash option for customers who only need interior or exterior cleaning."
+
+Features:
+
+* Interior wash only
+  OR
+* Exterior wash only
+* Single service package
+* Affordable quick cleaning
+
+---
+
+# ADDITIONAL SERVICES SECTION
+
+If there is a services/features/details section, add or update it with:
+
+## Individual Services
+
+* Interior Wash — KSh 100
+* Exterior Wash — KSh 100
+* Mats & Tires — KSh 100
+
+Keep the current design style.
+
+---
+
+# FREEDOM PASS SECTION
+
+Keep the existing FreedomPass™ design section.
+Only update the text.
+
+## Title
+
+"Freedom Pass"
+
+## Description
+
+"Get the Pro Wash plan for one full week at only KSh 1,300. Designed for customers who want consistent daily cleaning at an affordable price."
+
+## Features
+
+* Pro Wash access for 1 week
+* Daily interior cleaning
+* Daily exterior cleaning
+* Mats & tires included
+* Affordable weekly package
+
+---
+
+# NEWS / ARTICLES SECTION
+
+Locate the “View All News” section.
+
+## Remove ALL articles/cards EXCEPT:
+
+* Founders Club article
+
+Delete every other article card.
+Keep only the Founders Club article visible.
+
+Do NOT redesign the section.
+
+---
+
+# CONTACT INFORMATION
+
+Replace all existing contact details across the site with:
+
+## Phone
+
+0115566775
+
+## Email
+
+[bowambura123@gmail.com](mailto:bowambura123@gmail.com)
+
+## WhatsApp
+
+0115566775
+
+Update:
+
+* Footer
+* Contact page
+* Header contact areas
+* Appointment/contact forms
+* Any floating WhatsApp buttons
+* Any newsletter/contact sections
+
+---
+
+# QR CODE DEVELOPER CREDIT SECTION
+
+Add a clean and artistic developer credit section in the footer or near the bottom of the homepage.
+
+## QR CODE
+
+Generate a QR code linking to:
+
+[https://barrackwambura-ec7h.vercel.app/](https://barrackwambura-ec7h.vercel.app/)
+
+---
+
+## Developer Name
+
+Below the QR code, artistically display:
+
+"Barrack Rabuku"
+
+Requirements:
+
+* The name MUST be clickable.
+* Clicking the name should open:
+  [https://barrackwambura-ec7h.vercel.app/](https://barrackwambura-ec7h.vercel.app/)
+* Keep styling elegant and modern.
+* Match the existing website aesthetic.
+* Do not make it oversized or distracting.
+
+---
+
+# FINAL REQUIREMENTS
+
+* Preserve the current premium modern design.
+* Preserve responsiveness on mobile, tablet, and desktop.
+* Preserve all animations and transitions.
+* Preserve the existing color scheme unless necessary.
+* Only replace and update text/content.
+* Ensure all branding references are fully updated from AquaSonic to Serenade Wash.
+* Ensure “America’s” references become “Uthiru’s”.
+* Ensure all buttons and links function correctly.
+* Ensure the QR code is functional.
+* Ensure the developer name link opens correctly.

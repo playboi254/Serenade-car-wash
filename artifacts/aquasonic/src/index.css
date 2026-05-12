@@ -426,6 +426,60 @@ footer{background:#060e1c;padding:72px 0 36px}
 .foot-legal a{font-size:.7rem;color:rgba(255,255,255,.27);transition:color .2s}
 .foot-legal a:hover{color:var(--aqua)}
 
+/* BRANCH PILLS */
+.branches-row{
+  display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:8px;
+}
+.branch-pill{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(0,194,224,.1);border:1px solid rgba(0,194,224,.22);
+  color:rgba(255,255,255,.8);border-radius:40px;
+  padding:8px 20px;font-size:.74rem;font-weight:600;letter-spacing:.04em;
+}
+
+/* WHATSAPP NEWS CARD BUTTON */
+.news-wa-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  background:#25d366;color:#fff;
+  font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+  padding:8px 18px;border-radius:3px;
+  transition:background .2s;
+}
+.news-card:hover .news-wa-btn{background:#1ebe5d}
+
+/* PHONE PERSONAL BRANDING */
+.phone-dev-profile{
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  padding:0 20px;position:relative;z-index:1;
+}
+.phone-avatar{
+  width:56px;height:56px;border-radius:50%;
+  background:linear-gradient(135deg,var(--aqua),var(--brand));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;
+  color:#fff;letter-spacing:.04em;flex-shrink:0;
+  box-shadow:0 0 0 3px rgba(0,194,224,.22);
+}
+.phone-dev-name{
+  font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;
+  font-style:italic;color:var(--aqua);text-align:center;
+  transition:opacity .2s;
+}
+.phone-dev-name:hover{opacity:.75}
+.phone-dev-role{
+  font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,255,255,.28);
+}
+.phone-qr{
+  width:88px;height:88px;border-radius:6px;
+  border:1px solid rgba(0,194,224,.2);
+  margin-top:4px;
+}
+.phone-dev-hint{
+  font-size:.52rem;color:rgba(255,255,255,.22);
+  letter-spacing:.06em;text-align:center;line-height:1.5;
+}
+
 /* PACKAGE PRICE & FEATURES */
 .pkg-price{
   font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;

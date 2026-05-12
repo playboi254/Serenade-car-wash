@@ -1,0 +1,354 @@
+IMPORTANT:
+
+
+DO NOT redesign the website.
+
+
+DO NOT change layouts, animations, responsiveness, spacing, fonts, image placements, videos, transitions, or styling.
+
+
+DO NOT replace any current images or videos.
+
+
+DO NOT modify the overall visual appearance.
+
+
+ONLY apply the exact updates below carefully.
+
+
+Preserve all existing functionality and responsiveness.
+
+
+Maintain the current premium aesthetic exactly as it is.
+
+
+
+GLOBAL CLEANUP — REMOVE ALL AQUASONIC REFERENCES
+Perform a COMPLETE project-wide cleanup.
+Search the ENTIRE project and replace/remove ALL traces of:
+
+
+AquaSonic
+
+
+Aqua Sonic
+
+
+aquasonic
+
+
+aquasonic™
+
+
+Aqua Wash
+
+
+aqua wash
+
+
+America's
+
+
+Replace with:
+
+
+Serenade Wash
+
+
+serenade-wash where needed for slugs/meta
+
+
+Uthiru’s where text references location/community
+
+
+This includes:
+
+
+Visible text
+
+
+Meta titles
+
+
+Meta descriptions
+
+
+OpenGraph tags
+
+
+SEO tags
+
+
+Browser tab titles
+
+
+Footer text
+
+
+Schema markup
+
+
+Structured data
+
+
+URLs/slugs
+
+
+Constants
+
+
+Config files
+
+
+JSON files
+
+
+Manifest files
+
+
+Environment values
+
+
+Replit deployment metadata
+
+
+Share preview metadata
+
+
+Page titles
+
+
+VERY IMPORTANT:
+When the deployed Replit link is shared on WhatsApp/Facebook/Telegram/etc, the preview MUST display:
+TITLE:
+“Serenade Wash”
+DESCRIPTION:
+“Professional car wash services in Uthiru & Utawala with home service available.”
+NO trace of AquaSonic or Aqua Wash should remain anywhere.
+
+COMPANY LOCATION UPDATE
+Add/update company information everywhere necessary.
+The company now has TWO branches:
+Branch 1
+Serenade Apartments, Uthiru, Nairobi
+Branch 2
+Utawala, Nairobi
+Add/update a service statement:
+“We also offer home car wash services where our team comes and washes your vehicle at your location.”
+Add this naturally in:
+
+
+Contact section
+
+
+About section
+
+
+Hero support text if applicable
+
+
+Service details sections
+
+
+Do NOT alter layout.
+
+NAVIGATION BAR UPDATE
+Remove the navbar item:
+“Company”
+Do NOT leave empty spacing.
+Re-align navbar properly after removal.
+Do NOT affect responsiveness.
+
+REMOVE APP STORE / GOOGLE PLAY
+Remove:
+
+
+App Store button
+
+
+Google Play button
+
+
+Any “download app” references
+
+
+Any mobile app promotional text
+
+
+Do NOT leave awkward empty spaces.
+Keep the section visually balanced.
+
+PHONE MOCKUP SECTION UPDATE
+Inside the phone mockup area:
+Remove any fake app store UI references.
+Replace the phone screen content with a PERSONAL BRANDING SECTION.
+The phone screen should creatively contain:
+
+
+Profile/User Icon at the top
+
+
+Name:
+“Barrack Rabuku”
+
+
+The name MUST be clickable and open:
+https://barrackwambura-ec7h.vercel.app/
+Below the name:
+
+
+QR code linking to:
+https://barrackwambura-ec7h.vercel.app/
+
+
+Below the QR code add this sentence:
+“Scan the QR code or click the name to view portfolio”
+Make it elegant, modern, minimal, and premium.
+IMPORTANT:
+
+
+Keep the EXISTING phone mockup design.
+
+
+Only replace its internal content.
+
+
+Do NOT enlarge or distort the phone.
+
+
+Match existing styling/colors.
+
+
+
+CONTACT SECTION UPDATE
+Update phone contact actions.
+Besides:
+
+
+Call Us
+
+
+WhatsApp
+
+
+Add:
+
+
+Home Service Available
+
+
+Use concise stylish text.
+Phone:
+0115566775
+WhatsApp:
+0115566775
+Email:
+bowambura123@gmail.com
+
+WHATSAPP GROUP ARTICLE UPDATE
+In the “View All News” / article section:
+Remove the current remaining article.
+Replace it with a promotional WhatsApp community article.
+
+ARTICLE TITLE
+“Join the Serenade Wash Community”
+ARTICLE DESCRIPTION
+“Get exclusive offers, wash updates, discounts, booking assistance, and connect directly with the Serenade Wash team through our official WhatsApp community.”
+BUTTON TEXT
+“Join WhatsApp Group”
+BUTTON LINK
+https://chat.whatsapp.com/J153u1LlU1NBexFfGfiIaI
+Add stylish promotional wording like:
+
+
+Exclusive offers
+
+
+Priority updates
+
+
+Customer support
+
+
+Community discounts
+
+
+Keep the SAME card/article design.
+Do NOT redesign the section.
+
+FOOTER UPDATE
+Keep the QR code and developer branding.
+Ensure BOTH:
+
+
+QR code
+
+
+“Barrack Rabuku”
+
+
+link to:
+https://barrackwambura-ec7h.vercel.app/
+Update footer sentence from:
+“Scan the QR code to view portfolio”
+TO:
+“Scan the QR code or click the name to view portfolio”
+Keep styling elegant.
+
+SEO + METADATA FIXES
+Update all metadata globally.
+Browser Tab Title
+“Serenade Wash”
+Meta Description
+“Professional car wash services in Uthiru and Utawala with premium wash plans and home service.”
+OpenGraph
+Use Serenade Wash branding only.
+Twitter Metadata
+Use Serenade Wash branding only.
+Manifest/App Name
+Serenade Wash
+
+FINAL REQUIREMENTS
+
+
+Do NOT break anything.
+
+
+Do NOT change design.
+
+
+Do NOT alter responsiveness.
+
+
+Do NOT modify videos/images.
+
+
+Do NOT modify animations.
+
+
+Do NOT touch layout structure.
+
+
+ONLY apply requested updates.
+
+
+Preserve current premium appearance exactly.
+
+
+Ensure all old Aqua/AquaSonic references are fully removed from BOTH frontend and deployment metadata.
+
+
+Ensure all links work properly.
+
+
+Ensure QR codes work properly.
+
+
+Ensure portfolio links open correctly.
+
+
+Ensure WhatsApp group button opens properly.
+
+
+Ensure Replit deployment preview now shows “Serenade Wash” instead of Aqua Wash.
+

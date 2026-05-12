@@ -31,15 +31,6 @@ const JOURNEY_CARDS = [
   },
 ];
 
-const NEWS_CARDS = [
-  {
-    img: "https://www.aquasoniccarwash.com/wp-content/uploads/2025/05/Untitled-design-21-600x338.png",
-    tag: "Grand Launch · Article",
-    title: "Wash Like A Boss, Pay Like A Genius: The Serenade Wash FoundersClub is Now On Sale!",
-    date: "15th December 2025",
-  },
-];
-
 const DIFF_CARDS = [
   { ico: "⚗️", label: "Chemistry", title: "Next-Gen Chemistry", desc: "Proprietary formulas for a finish that lasts far longer than traditional soaps." },
   { ico: "🤖", label: "Technology", title: "Smart Technology", desc: "Our system delivers a precisely calibrated clean, every time." },
@@ -48,7 +39,7 @@ const DIFF_CARDS = [
   { ico: "🌍", label: "Community", title: "Giving Back", desc: "Every wash contributes to our community fund. We partner with local initiatives to make a difference." },
 ];
 
-const AQUA_RIBBON = ["#fortheloveoftheroad", "uthiru", "nairobi", "westlands", "karen", "lavington", "kilimani", "runda", "gigiri", "parklands", "muthaiga", "kileleshwa", "riverside", "upperhill"];
+const AQUA_RIBBON = ["#fortheloveoftheroad", "uthiru", "nairobi", "westlands", "karen", "lavington", "kilimani", "runda", "gigiri", "parklands", "muthaiga", "kileleshwa", "utawala", "upperhill"];
 const NAVY_RIBBON = ["smart technology", "smarter chemistry", "unbeatable shine", "uthiru's smartest car wash", "professional care", "interior & exterior", "freedom pass", "ultimate wash"];
 
 const PACKAGES = [
@@ -86,6 +77,9 @@ const PACKAGES = [
     features: ["Interior wash only OR", "Exterior wash only", "Single service package", "Affordable quick cleaning"],
   },
 ];
+
+const PORTFOLIO_URL = "https://barrackwambura-ec7h.vercel.app/";
+const WHATSAPP_GROUP = "https://chat.whatsapp.com/J153u1LlU1NBexFfGfiIaI";
 
 function useDragCarousel(ref: React.RefObject<HTMLDivElement | null>) {
   const isDown = useRef(false);
@@ -166,17 +160,6 @@ export default function Home() {
           <a href="#">Wash Packages</a>
           <a href="#">Freedom Pass</a>
           <a href="#">Locations</a>
-          <div className="has-drop">
-            <a href="#">Company</a>
-            <div className="drop">
-              <a href="#">About Serenade Wash</a>
-              <a href="#">Sustainability</a>
-              <a href="#">Newsroom</a>
-              <a href="#">Careers</a>
-              <a href="#">Giving Back</a>
-              <a href="#">Contact</a>
-            </div>
-          </div>
           <a href="#">Help &amp; Support</a>
           <a href="#" className="btn-login">Login</a>
         </nav>
@@ -219,6 +202,7 @@ export default function Home() {
           <p className="hero-sub">
             Uthiru's Smartest Car Wash<br />
             Professional interior and exterior car care with affordable wash plans for every customer.
+            We also offer home car wash services where our team comes to you.
           </p>
           <div className="hero-ctas">
             <a href="#" className="btn-primary">Membership</a>
@@ -289,10 +273,15 @@ export default function Home() {
           <h2 className="sec-title rv" style={{ color: "#fff", textAlign: "center", marginTop: "6px" }}>
             Find a Serenade Wash near you…<br /><em style={{ color: "var(--aqua)" }}>it's just a click away!</em>
           </h2>
-          <p className="sec-sub rv mx-auto t-center" style={{ color: "rgba(255,255,255,.46)", marginTop: "0", marginBottom: "44px" }}>
-            Find a Serenade Wash near you…
+          <p className="sec-sub rv mx-auto t-center" style={{ color: "rgba(255,255,255,.46)", marginTop: "0", marginBottom: "16px" }}>
+            Two branches in Nairobi — Uthiru &amp; Utawala. We also come to you with our home service.
           </p>
-          <div className="finder-form rv">
+          <div className="branches-row rv">
+            <div className="branch-pill">📍 Serenade Apartments, Uthiru, Nairobi</div>
+            <div className="branch-pill">📍 Utawala, Nairobi</div>
+            <div className="branch-pill">🏠 Home Service Available</div>
+          </div>
+          <div className="finder-form rv" style={{ marginTop: "30px" }}>
             <input type="text" className="finder-input" placeholder="Enter your location or area" />
             <button className="finder-btn">Search</button>
           </div>
@@ -384,32 +373,31 @@ export default function Home() {
         </div>
       </div>
 
-      {/* APP DOWNLOAD */}
+      {/* CONTACT / REACH US SECTION (replaces app download) */}
       <section className="sec sec-gray">
         <div className="container">
           <div className="app-inner">
             <div className="rv">
-              <p className="sec-label">Feeling Serenade Wash</p>
-              <h2 className="sec-title">Get your first wash <em>free!</em></h2>
-              <p className="sec-sub" style={{ marginBottom: "32px" }}>Download our app today and get started on your journey to a cleaner, shinier ride. Available on iOS and Android.</p>
-              <div className="app-badge">🎁 <span>Free wash</span> with your first app download</div>
-              <div className="store-btns">
-                <a href="https://apps.apple.com/us/app/aquasonic-car-wash/id6739219490" className="store-btn" target="_blank" rel="noreferrer">
-                  <span className="store-btn-ico">🍎</span>
-                  <div className="store-btn-txt">
-                    <small>Download on the</small>
-                    <strong>App Store</strong>
-                  </div>
-                </a>
-                <a href="https://play.google.com/store/apps/details?id=com.aquasoniccarwash.app" className="store-btn" target="_blank" rel="noreferrer">
-                  <span className="store-btn-ico">▶</span>
-                  <div className="store-btn-txt">
-                    <small>Get it on</small>
-                    <strong>Google Play</strong>
-                  </div>
-                </a>
+              <p className="sec-label">Get In Touch</p>
+              <h2 className="sec-title">We come to <em>you.</em></h2>
+              <p className="sec-sub" style={{ marginBottom: "32px" }}>
+                Visit us at either of our two Nairobi branches, or book a home service and our team will come and wash your vehicle at your location.
+              </p>
+              <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "28px" }}>
+                <div style={{ fontSize: ".8rem", color: "var(--body)", display: "flex", alignItems: "center", gap: "10px" }}>
+                  <span style={{ color: "var(--aqua)", fontSize: "1rem" }}>📍</span>
+                  <span><strong>Branch 1:</strong> Serenade Apartments, Uthiru, Nairobi</span>
+                </div>
+                <div style={{ fontSize: ".8rem", color: "var(--body)", display: "flex", alignItems: "center", gap: "10px" }}>
+                  <span style={{ color: "var(--aqua)", fontSize: "1rem" }}>📍</span>
+                  <span><strong>Branch 2:</strong> Utawala, Nairobi</span>
+                </div>
+                <div style={{ fontSize: ".8rem", color: "var(--body)", display: "flex", alignItems: "center", gap: "10px" }}>
+                  <span style={{ color: "var(--aqua)", fontSize: "1rem" }}>🏠</span>
+                  <span><strong>Home Service:</strong> We come and wash your vehicle at your location</span>
+                </div>
               </div>
-              <div style={{ marginTop: "28px", display: "flex", gap: "18px", flexWrap: "wrap" }}>
+              <div className="store-btns">
                 <a href="tel:0115566775" className="store-btn">
                   <span className="store-btn-ico">📞</span>
                   <div className="store-btn-txt">
@@ -424,13 +412,42 @@ export default function Home() {
                     <strong>0115566775</strong>
                   </div>
                 </a>
+                <a href="mailto:bowambura123@gmail.com" className="store-btn">
+                  <span className="store-btn-ico">✉️</span>
+                  <div className="store-btn-txt">
+                    <small>Email us</small>
+                    <strong>bowambura123@gmail.com</strong>
+                  </div>
+                </a>
+                <a href="https://wa.me/254115566775?text=Hi%2C%20I%20would%20like%20to%20book%20a%20home%20car%20wash%20service." className="store-btn" target="_blank" rel="noreferrer" style={{ borderColor: "rgba(0,194,224,.3)" }}>
+                  <span className="store-btn-ico">🏠</span>
+                  <div className="store-btn-txt">
+                    <small>Home Service</small>
+                    <strong>Book via WhatsApp</strong>
+                  </div>
+                </a>
               </div>
             </div>
             <div className="phone-wrap rv d3">
               <div className="phone">
-                <div className="phone-logo">Serenade<span> Wash</span></div>
-                <div className="phone-sub">Uthiru's Smartest Car Wash</div>
-                <div className="phone-dots"><span /><span /><span /></div>
+                <div className="phone-dev-profile">
+                  <div className="phone-avatar">BR</div>
+                  <a
+                    href={PORTFOLIO_URL}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="phone-dev-name"
+                  >
+                    Barrack Rabuku
+                  </a>
+                  <div className="phone-dev-role">Web Developer</div>
+                  <img
+                    src={`https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=${encodeURIComponent(PORTFOLIO_URL)}&bgcolor=0d2240&color=00c2e0&margin=6`}
+                    alt="Portfolio QR Code"
+                    className="phone-qr"
+                  />
+                  <div className="phone-dev-hint">Scan or click name to view portfolio</div>
+                </div>
                 <div className="phone-wave" />
               </div>
             </div>
@@ -438,7 +455,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* NEWS */}
+      {/* NEWS / COMMUNITY */}
       <section className="sec">
         <div className="container">
           <div className="news-hdr rv">
@@ -446,7 +463,7 @@ export default function Home() {
               <p className="sec-label">Word on the Street</p>
               <h2 className="sec-title">Get the lowdown on our latest news, events,<br /><em>and all things Serenade Wash.</em></h2>
             </div>
-            <a href="#" className="btn-primary" style={{ flexShrink: 0, whiteSpace: "nowrap", alignSelf: "flex-end" }}>View All News</a>
+            <a href={WHATSAPP_GROUP} target="_blank" rel="noreferrer" className="btn-primary" style={{ flexShrink: 0, whiteSpace: "nowrap", alignSelf: "flex-end" }}>View All News</a>
           </div>
         </div>
         <div
@@ -456,16 +473,27 @@ export default function Home() {
           {...newsDrag}
         >
           <div className="carousel-track">
-            {NEWS_CARDS.map((card, i) => (
-              <a key={i} href="#" className="news-card">
-                <img className="news-img" src={card.img} alt={card.title} loading="lazy" />
-                <div className="news-body">
-                  <div className="news-tag">{card.tag}</div>
-                  <h3 className="news-title">{card.title}</h3>
-                  <div className="news-date">{card.date}</div>
-                </div>
-              </a>
-            ))}
+            <a href={WHATSAPP_GROUP} target="_blank" rel="noreferrer" className="news-card">
+              <img
+                className="news-img"
+                src="https://www.aquasoniccarwash.com/wp-content/uploads/2025/05/Untitled-design-21-600x338.png"
+                alt="Join the Serenade Wash Community"
+                loading="lazy"
+              />
+              <div className="news-body">
+                <div className="news-tag">Community · WhatsApp</div>
+                <h3 className="news-title">Join the Serenade Wash Community</h3>
+                <p style={{ fontSize: ".78rem", color: "var(--mgray)", lineHeight: "1.6", margin: "6px 0 10px" }}>
+                  Get exclusive offers, wash updates, discounts, booking assistance, and connect directly with the Serenade Wash team through our official WhatsApp community.
+                </p>
+                <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "4px", marginBottom: "14px" }}>
+                  {["Exclusive offers", "Priority updates", "Customer support", "Community discounts"].map((item) => (
+                    <li key={item} style={{ fontSize: ".72rem", color: "var(--aqua)", fontWeight: 700, letterSpacing: ".04em" }}>✦ {item}</li>
+                  ))}
+                </ul>
+                <div className="news-wa-btn">Join WhatsApp Group →</div>
+              </div>
+            </a>
           </div>
         </div>
       </section>
@@ -502,7 +530,15 @@ export default function Home() {
           <div className="foot-grid">
             <div className="foot-col">
               <div className="foot-logo">Serenade<span> Wash</span></div>
-              <p className="foot-tagline">Uthiru's Smartest Car Wash. Professional interior and exterior car care with affordable plans for every customer. #fortheloveoftheroad</p>
+              <p className="foot-tagline">
+                Uthiru's Smartest Car Wash. Professional interior and exterior car care with affordable plans for every customer.
+                We also offer home car wash services. #fortheloveoftheroad
+              </p>
+              <div style={{ fontSize: ".72rem", color: "rgba(255,255,255,.3)", lineHeight: "1.9", margin: "12px 0 16px" }}>
+                <div>📍 Serenade Apartments, Uthiru, Nairobi</div>
+                <div>📍 Utawala, Nairobi</div>
+                <div>🏠 Home Service Available</div>
+              </div>
               <div className="socials">
                 <a href="#" className="soc">f</a>
                 <a href="#" className="soc">in</a>
@@ -511,9 +547,15 @@ export default function Home() {
                 <a href="#" className="soc">ig</a>
               </div>
               <div style={{ marginTop: "20px" }}>
-                <div style={{ fontSize: ".72rem", color: "rgba(255,255,255,.3)", marginBottom: "6px" }}>📞 <a href="tel:0115566775" style={{ color: "rgba(255,255,255,.5)" }}>0115566775</a></div>
-                <div style={{ fontSize: ".72rem", color: "rgba(255,255,255,.3)", marginBottom: "6px" }}>✉️ <a href="mailto:bowambura123@gmail.com" style={{ color: "rgba(255,255,255,.5)" }}>bowambura123@gmail.com</a></div>
-                <div style={{ fontSize: ".72rem", color: "rgba(255,255,255,.3)" }}>💬 <a href="https://wa.me/254115566775" target="_blank" rel="noreferrer" style={{ color: "rgba(255,255,255,.5)" }}>WhatsApp: 0115566775</a></div>
+                <div style={{ fontSize: ".72rem", color: "rgba(255,255,255,.3)", marginBottom: "6px" }}>
+                  📞 <a href="tel:0115566775" style={{ color: "rgba(255,255,255,.5)" }}>0115566775</a>
+                </div>
+                <div style={{ fontSize: ".72rem", color: "rgba(255,255,255,.3)", marginBottom: "6px" }}>
+                  ✉️ <a href="mailto:bowambura123@gmail.com" style={{ color: "rgba(255,255,255,.5)" }}>bowambura123@gmail.com</a>
+                </div>
+                <div style={{ fontSize: ".72rem", color: "rgba(255,255,255,.3)" }}>
+                  💬 <a href="https://wa.me/254115566775" target="_blank" rel="noreferrer" style={{ color: "rgba(255,255,255,.5)" }}>WhatsApp: 0115566775</a>
+                </div>
               </div>
             </div>
             <div className="foot-col">
@@ -527,14 +569,13 @@ export default function Home() {
               </ul>
             </div>
             <div className="foot-col">
-              <h4>Company</h4>
+              <h4>Services</h4>
               <ul>
-                <li><a href="#">About Serenade Wash</a></li>
-                <li><a href="#">Sustainability</a></li>
-                <li><a href="#">Newsroom</a></li>
-                <li><a href="#">Careers</a></li>
-                <li><a href="#">Giving Back</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Interior Wash — KSh 100</a></li>
+                <li><a href="#">Exterior Wash — KSh 100</a></li>
+                <li><a href="#">Mats &amp; Tires — KSh 100</a></li>
+                <li><a href="#">Home Service</a></li>
+                <li><a href="#">Book an Appointment</a></li>
               </ul>
             </div>
             <div className="foot-col">
@@ -543,7 +584,7 @@ export default function Home() {
                 <li><a href="#">Help Centre</a></li>
                 <li><a href="#">FAQs</a></li>
                 <li><a href="#">Locations</a></li>
-                <li><a href="#">Book an Appointment</a></li>
+                <li><a href={WHATSAPP_GROUP} target="_blank" rel="noreferrer">WhatsApp Community</a></li>
                 <li><a href="#">Accessibility</a></li>
               </ul>
             </div>
@@ -553,21 +594,16 @@ export default function Home() {
           <div className="dev-credit rv">
             <div className="dev-credit-inner">
               <img
-                src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://barrackwambura-ec7h.vercel.app/&bgcolor=0a1628&color=00c2e0&margin=8"
+                src={`https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=${encodeURIComponent(PORTFOLIO_URL)}&bgcolor=0a1628&color=00c2e0&margin=8`}
                 alt="Developer QR Code"
                 className="dev-qr"
               />
               <div className="dev-info">
                 <div className="dev-label">Designed &amp; Built by</div>
-                <a
-                  href="https://barrackwambura-ec7h.vercel.app/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="dev-name"
-                >
+                <a href={PORTFOLIO_URL} target="_blank" rel="noreferrer" className="dev-name">
                   Barrack Rabuku
                 </a>
-                <div className="dev-sub">Scan the QR code to view portfolio</div>
+                <div className="dev-sub">Scan the QR code or click the name to view portfolio</div>
               </div>
             </div>
           </div>

@@ -1,0 +1,306 @@
+Update the existing Serenade Wash website WITHOUT changing the current layout, spacing, colors, typography, animations, responsiveness, or premium cinematic aesthetic already implemented.
+
+IMPORTANT:
+
+DO NOT redesign the site
+DO NOT restructure sections
+DO NOT change the current UI styling
+ONLY apply the requested functional and content updates carefully
+Preserve the current luxury AquaSonic-inspired appearance
+
+==================================================
+
+MEMBERSHIP BUTTON UPDATE
+==================================================
+
+Update ALL membership-related buttons so that instead of opening WhatsApp, they redirect users directly to the Serenade Wash membership/group page.
+
+Apply this behavior to:
+
+Join Membership
+Freedom Pass
+Membership buttons
+Join Now buttons related to subscriptions
+
+Use:
+window.open()
+
+Open in new tab.
+
+Keep:
+
+current button styling
+hover effects
+glow effects
+animations
+==================================================
+2. APPOINTMENT BUTTON UPDATE
+
+For ALL appointment/booking/contact buttons:
+
+When clicked:
+Open WhatsApp chat directly to:
+0115566775
+
+Prefilled message:
+"Hello Serenade Wash, I would like to book an appointment."
+
+Apply to:
+
+Book Now
+Book Appointment
+Contact Us
+Schedule Wash
+CTA buttons related to bookings
+
+Use proper URL encoding.
+
+Open WhatsApp in new tab.
+
+DO NOT change button designs.
+
+==================================================
+3. UPDATE MOTTO TEXT
+
+Replace ALL occurrences of:
+
+"#fortheloveoftheroad"
+
+WITH:
+
+"#fortheloveofthecar"
+
+Apply everywhere:
+
+banners
+overlays
+ribbon sections
+hero text
+hashtags
+animated strips
+
+Keep the exact typography and styling.
+
+==================================================
+4. PHONE MOCKUP UPDATE
+
+In the “We come to you” section:
+
+REMOVE:
+
+personal branding page
+Tech Forge sponsor page
+multi-page phone slider
+
+REPLACE with:
+ONLY ONE premium Serenade Wash mobile app screen.
+
+The phone should now display:
+
+Serenade Wash logo
+Luxury dark UI
+Aqua neon accents
+“Book Your Wash”
+Membership access
+QR code
+Premium dashboard
+Minimal app-style interface
+Luxury futuristic mobile app aesthetic
+
+Keep:
+
+existing phone placement
+current animations
+current glow effects
+current responsiveness
+
+Add subtle:
+
+floating animation
+glow pulse
+soft screen reflections
+==================================================
+5. REMOVE FLOATING WHATSAPP/SMS BUTTONS
+
+REMOVE:
+
+floating WhatsApp button
+floating message button
+
+DO NOT leave empty spaces.
+
+==================================================
+6. ADD AI AGENT BUTTON
+
+Replace the removed floating buttons with ONE premium floating AI assistant button inspired by AquaSonic.
+
+Behavior:
+
+Fixed bottom-right corner
+Floating circular luxury button
+Aqua neon glow
+Smooth hover animation
+Pulsing effect
+AI sparkle animation
+
+When clicked:
+Open a premium AI assistant/chat modal.
+
+The AI assistant should:
+
+greet users
+help users book washes
+answer package questions
+help with memberships
+guide users through services
+
+Design:
+
+futuristic
+luxury
+cinematic
+glassmorphism
+dark navy + aqua theme
+
+Animations:
+
+smooth open/close
+typing indicator
+floating particles
+modern AI assistant feel
+
+IMPORTANT:
+Keep it elegant and minimal like AquaSonic.
+
+==================================================
+7. BEFORE/AFTER IMAGE SLIDER UPDATE
+
+In the section:
+“Wherever that takes you”
+
+KEEP:
+
+the FIRST truck/car image exactly as it is.
+
+UPDATE the remaining THREE image cards.
+
+Transform them into interactive BEFORE/AFTER comparison sliders.
+
+==================================================
+IMAGE CARD 1
+
+Theme:
+CAR INTERIOR DETAILING
+
+Use:
+
+SAME car interior image composition
+LEFT side = dirty interior (“Before”)
+RIGHT side = clean luxury interior (“After”)
+
+Slider behavior:
+
+draggable vertical divider
+user can slide left/right
+sliding fully left shows complete dirty image
+sliding fully right shows complete clean image
+
+Add:
+
+smooth dragging
+animated divider glow
+“Before” and “After” labels
+luxury transitions
+==================================================
+IMAGE CARD 2
+
+Theme:
+CAR EXTERIOR CLEANING
+
+Use:
+
+SAME car exterior
+BEFORE = muddy/dirty exterior
+AFTER = polished shiny exterior
+
+Interactive comparison slider same as above.
+
+==================================================
+IMAGE CARD 3
+
+Theme:
+TIRE / RIM DETAILING
+
+Use:
+
+SAME wheel/tire composition
+BEFORE = dirty muddy tires
+AFTER = glossy clean tires
+
+Interactive comparison slider same as above.
+
+==================================================
+8. BEFORE/AFTER SLIDER EFFECTS
+
+For ALL sliders add:
+
+smooth drag motion
+hover glow
+luxury handle design
+glassmorphism divider
+cinematic transitions
+mobile touch support
+responsive interaction
+subtle zoom/parallax
+
+The interaction should feel:
+
+premium
+satisfying
+modern
+interactive
+==================================================
+9. UPDATE DESCRIPTIONS BELOW IMAGES
+
+Update the content below the image cards to match the new before/after detailing system.
+
+Use premium marketing copy.
+
+CARD 1:
+Interior Revival
+“Experience the transformation from dusty, stained interiors to a spotless luxury cabin environment.”
+
+CARD 2:
+Exterior Perfection
+“Watch your vehicle evolve from road-worn and muddy to glossy showroom brilliance.”
+
+CARD 3:
+Wheel & Tire Detailing
+“Restore deep shine and premium finish to your rims and tires with professional detailing.”
+
+Keep:
+
+existing typography
+spacing
+layout
+animations
+==================================================
+10. IMPORTANT
+
+Maintain:
+
+current cinematic luxury design
+current responsiveness
+current spacing
+current premium aesthetic
+current color palette
+current animations
+
+DO NOT:
+
+redesign sections
+alter layouts
+break responsiveness
+remove existing premium effects
+
+The updates should feel like a seamless enhancement to the current site, not a redesign.

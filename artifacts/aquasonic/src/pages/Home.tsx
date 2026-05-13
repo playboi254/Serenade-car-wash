@@ -5,20 +5,20 @@ const CALL_NUMBER = "0769248566";
 const PORTFOLIO_URL = "https://barrackwambura-ec7h.vercel.app/";
 const WHATSAPP_GROUP = "https://chat.whatsapp.com/J153u1LlU1NBexFfGfiIaI";
 
-function waLink(msg: string) {
-  return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+function waBook() {
+  return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("Hello Serenade Wash, I would like to book an appointment.")}`;
+}
+function waPackage(name: string) {
+  return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(`Hello Serenade Wash, I am interested in the ${name}.`)}`;
+}
+function waContact() {
+  return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("Hello Serenade Wash, I would like to inquire about your services.")}`;
+}
+function waHome() {
+  return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("Hello Serenade Wash, I would like to book a home car wash service at my location.")}`;
 }
 
-const WA = {
-  book: waLink("Hello Serenade Wash, I would like to book an appointment."),
-  membership: waLink("Hello Serenade Wash, I would like to join the Freedom Pass membership."),
-  ultimate: waLink("Hello Serenade Wash, I am interested in the Ultimate Wash package (KSh 450)."),
-  pro: waLink("Hello Serenade Wash, I am interested in the Pro Wash package (KSh 300)."),
-  lite: waLink("Hello Serenade Wash, I am interested in the Lite Wash package (KSh 100)."),
-  contact: waLink("Hello Serenade Wash, I would like to inquire about your services."),
-  homeService: waLink("Hello Serenade Wash, I would like to book a home car wash service at my location."),
-  freedomPass: waLink("Hello Serenade Wash, I would like to join the Freedom Pass — KSh 1,300 per week."),
-};
+const QR_WASH = `https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=${encodeURIComponent(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("Hello Serenade Wash, I would like to book an appointment.")}`)}&bgcolor=0d2240&color=00c2e0&margin=5`;
 
 const JOURNEY_CARDS = [
   {
@@ -26,24 +26,28 @@ const JOURNEY_CARDS = [
     img: "https://www.aquasoniccarwash.com/wp-content/uploads/2025/01/Electric-off-road-pick-up-truck-600x324.webp",
     alt: "A sleek electric pickup truck",
     text: "Here's to those who know that driving isn't just about getting there. It's about the memories you make along the way—the open skies, the untamed roads, and the freedom to explore.",
+    beforeAfter: false,
   },
   {
-    tag: "For the lovers", title: "For the Lovers",
+    tag: "Interior Revival", title: "Interior Revival",
     img: "https://www.aquasoniccarwash.com/wp-content/uploads/2024/10/Woman_car_window_sunset-600x400.webp",
-    alt: "A young woman leaning out of a car window at golden hour",
-    text: "You're not afraid of detours or the unknown. You embrace the unexpected and live for the thrill of what's around the next bend. Every mile is a mapless moment, and that's the point.",
+    alt: "Car interior before and after cleaning",
+    text: "Experience the transformation from dusty, stained interiors to a spotless luxury cabin environment.",
+    beforeAfter: true,
   },
   {
-    tag: "For the adventurers", title: "For the Adventurers",
-    img: "https://www.aquasoniccarwash.com/wp-content/uploads/2024/10/Middle_aged_couple_sunset-600x337.webp",
-    alt: "A smiling couple at sunset",
-    text: "Some see a car wash as routine. You see it as a celebration. A ritual that honors the road ahead and ensures your ride is ready for every adventure you have yet to take.",
-  },
-  {
-    tag: "For the love of the road", title: "For the Love of the Road",
+    tag: "Exterior Perfection", title: "Exterior Perfection",
     img: "https://www.aquasoniccarwash.com/wp-content/uploads/2024/10/Young_couple_selfie_desert-600x336.webp",
-    alt: "A couple on a sunny road trip",
-    text: "It's more than just a drive. It's a love affair with the journey. And for those who live for the road, every detail—every wash, every polish—is a commitment to freedom.",
+    alt: "Car exterior before and after cleaning",
+    text: "Watch your vehicle evolve from road-worn and muddy to glossy showroom brilliance.",
+    beforeAfter: true,
+  },
+  {
+    tag: "Wheel & Tire Detailing", title: "Wheel & Tire Detailing",
+    img: "https://www.aquasoniccarwash.com/wp-content/uploads/2024/10/Middle_aged_couple_sunset-600x337.webp",
+    alt: "Tire and rim before and after detailing",
+    text: "Restore deep shine and premium finish to your rims and tires with professional detailing.",
+    beforeAfter: true,
   },
 ];
 
@@ -55,7 +59,7 @@ const DIFF_CARDS = [
   { ico: "🌍", label: "Community", title: "Giving Back", desc: "Every wash contributes to our community fund. We partner with local initiatives to make a difference." },
 ];
 
-const AQUA_RIBBON = ["#fortheloveoftheroad", "uthiru", "nairobi", "westlands", "karen", "lavington", "kilimani", "runda", "gigiri", "parklands", "muthaiga", "kileleshwa", "utawala", "upperhill"];
+const AQUA_RIBBON = ["#fortheloveofthecar", "uthiru", "nairobi", "westlands", "karen", "lavington", "kilimani", "runda", "gigiri", "parklands", "muthaiga", "kileleshwa", "utawala", "upperhill"];
 const NAVY_RIBBON = ["smart technology", "smarter chemistry", "unbeatable shine", "uthiru's smartest car wash", "professional care", "interior & exterior", "freedom pass", "ultimate wash"];
 
 const PACKAGES = [
@@ -64,132 +68,215 @@ const PACKAGES = [
     sub: "Showroom Finish, Ultimate Care", price: "KSh 450",
     desc: "Complete premium wash package including interior cleaning, exterior cleaning, mats, tires, and rims. Full vehicle detailing available two times a day.",
     features: ["Interior wash", "Exterior wash", "Mats cleaning", "Tires & rims cleaning", "Full body wash", "Available two times a day"],
-    wa: WA.ultimate,
+    waMsg: "Ultimate Wash package (KSh 450)",
   },
   {
     featured: false, badge: null, ico: "🔵", label: "Pro Wash", name: "Pro Wash",
     sub: "Deep Clean, Lasting Protection", price: "KSh 300",
     desc: "Professional daily wash package covering interior cleaning, exterior cleaning, mats, and tires once a day.",
     features: ["Interior wash", "Exterior wash", "Mats cleaning", "Tires cleaning", "One wash per day"],
-    wa: WA.pro,
+    waMsg: "Pro Wash package (KSh 300)",
   },
   {
     featured: false, badge: null, ico: "💧", label: "Lite Wash", name: "Lite Wash",
     sub: "Quick Clean, No Compromise", price: "KSh 100",
     desc: "Affordable single-service wash option for customers who only need interior or exterior cleaning.",
     features: ["Interior wash only OR", "Exterior wash only", "Single service package", "Affordable quick cleaning"],
-    wa: WA.lite,
+    waMsg: "Lite Wash package (KSh 100)",
   },
 ];
 
-const SKILLS = [
-  { label: "Web Development", pct: 95 },
-  { label: "UI/UX Design", pct: 88 },
-  { label: "Digital Solutions", pct: 82 },
-];
+/* ─── BEFORE/AFTER SLIDER ─── */
+function BeforeAfterSlider({ img, alt }: { img: string; alt: string }) {
+  const [pos, setPos] = useState(50);
+  const dragging = useRef(false);
+  const ref = useRef<HTMLDivElement>(null);
 
-const QR_WASH = `https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=${encodeURIComponent("https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent("Hello Serenade Wash, I would like to book an appointment."))}&bgcolor=0d2240&color=00c2e0&margin=5`;
-const QR_PORTFOLIO = `https://api.qrserver.com/v1/create-qr-code/?size=90x90&data=${encodeURIComponent(PORTFOLIO_URL)}&bgcolor=0d2240&color=00c2e0&margin=5`;
+  const clamp = (v: number) => Math.max(2, Math.min(98, v));
 
-function PhoneSlider() {
-  const [slide, setSlide] = useState(0);
-  const [prev, setPrev] = useState<number | null>(null);
-  const total = 3;
-
-  const goTo = useCallback((idx: number) => {
-    setPrev(slide);
-    setSlide(idx);
-    setTimeout(() => setPrev(null), 600);
-  }, [slide]);
-
-  useEffect(() => {
-    const t = setInterval(() => {
-      goTo((slide + 1) % total);
-    }, 4500);
-    return () => clearInterval(t);
-  }, [slide, goTo]);
-
-  const screenClass = (i: number) => {
-    if (i === slide) return "phone-screen active";
-    if (i === prev) return "phone-screen exit";
-    return "phone-screen";
+  const getPos = (clientX: number) => {
+    if (!ref.current) return 50;
+    const r = ref.current.getBoundingClientRect();
+    return clamp(((clientX - r.left) / r.width) * 100);
   };
+
+  const onMouseDown = (e: React.MouseEvent) => { dragging.current = true; setPos(getPos(e.clientX)); };
+  const onMouseMove = (e: React.MouseEvent) => { if (dragging.current) setPos(getPos(e.clientX)); };
+  const onMouseUp = () => { dragging.current = false; };
+
+  const onTouchStart = (e: React.TouchEvent) => { dragging.current = true; setPos(getPos(e.touches[0].clientX)); };
+  const onTouchMove = (e: React.TouchEvent) => { if (dragging.current) setPos(getPos(e.touches[0].clientX)); };
+  const onTouchEnd = () => { dragging.current = false; };
+
+  return (
+    <div className="ba-wrap" ref={ref}
+      onMouseDown={onMouseDown} onMouseMove={onMouseMove} onMouseUp={onMouseUp} onMouseLeave={onMouseUp}
+      onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>
+      {/* Before (dirty) */}
+      <img className="ba-img ba-before-filter" src={img} alt={alt} draggable={false} />
+      {/* After (clean) clipped */}
+      <div className="ba-after" style={{ clipPath: `inset(0 0 0 ${pos}%)` }}>
+        <img src={img} alt={alt} draggable={false} />
+      </div>
+      {/* Divider */}
+      <div className="ba-divider" style={{ left: `${pos}%` }}>
+        <div className="ba-handle">⇔</div>
+      </div>
+      <span className="ba-label before">Before</span>
+      <span className="ba-label after">After</span>
+    </div>
+  );
+}
+
+/* ─── AI ASSISTANT ─── */
+type Msg = { role: "bot" | "user"; text: string };
+
+const QUICK = ["Book a wash", "See packages", "Freedom Pass", "Locations", "Home service"];
+
+function aiReply(input: string): string {
+  const t = input.toLowerCase();
+  if (/hi|hello|hey|good/.test(t))
+    return "Hello! Welcome to Serenade Wash 🚗✨ I'm here to help you with bookings, packages, and anything else. How can I assist you today?";
+  if (/book|appoint|schedul|wash/.test(t))
+    return `To book a wash, simply click the link below or message us on WhatsApp:\n\n👉 wa.me/${WA_NUMBER}\n\n"Hello Serenade Wash, I would like to book an appointment."`;
+  if (/ultimate|450|premium/.test(t))
+    return "Our **Ultimate Wash** (KSh 450) is our most complete package — interior, exterior, mats, tires & rims. Available twice daily. It's the showroom finish your car deserves!";
+  if (/pro|300/.test(t))
+    return "The **Pro Wash** (KSh 300) covers interior, exterior, mats & tires — once per day. Perfect for regular, professional upkeep.";
+  if (/lite|100/.test(t))
+    return "The **Lite Wash** (KSh 100) gives you a single service — interior OR exterior. Quick, clean, and affordable!";
+  if (/package|price|cost|plan|option/.test(t))
+    return "We have 3 packages:\n• Lite Wash — KSh 100 (single service)\n• Pro Wash — KSh 300 (daily clean)\n• Ultimate Wash — KSh 450 (full detail)\n\nWhich one interests you?";
+  if (/freedom|member|join|subscri/.test(t))
+    return "The **Freedom Pass** gives you Pro Wash access for a full week at just KSh 1,300. Daily interior + exterior + mats & tires. Join via our WhatsApp group!";
+  if (/location|where|branch|find/.test(t))
+    return "We have two branches:\n📍 Serenade Apartments, Uthiru, Nairobi\n📍 Utawala, Nairobi\n\nWe also offer **Home Service** — our team comes to you!";
+  if (/home|mobile|come to|deliver/.test(t))
+    return "Yes! We offer **Home Car Wash Service** — our team comes to your location to wash your vehicle. Book via WhatsApp and we'll arrange everything.";
+  if (/hour|open|time|when/.test(t))
+    return "We're open daily. For exact operating hours or same-day bookings, please message us on WhatsApp: 0115566775.";
+  if (/contact|number|phone|reach/.test(t))
+    return `You can reach us at:\n📞 Call: ${CALL_NUMBER}\n💬 WhatsApp: 0115566775\n✉️ Email: bowambura123@gmail.com`;
+  return "I can help you with bookings, packages, pricing, locations, and memberships. What would you like to know? You can also message us directly on WhatsApp: 0115566775.";
+}
+
+function AIAssistant() {
+  const [open, setOpen] = useState(false);
+  const [msgs, setMsgs] = useState<Msg[]>([
+    { role: "bot", text: "Hello! I'm your Serenade Wash assistant. I can help you book a wash, explore our packages, or answer any questions. What can I do for you today? ✨" },
+  ]);
+  const [input, setInput] = useState("");
+  const [typing, setTyping] = useState(false);
+  const msgsRef = useRef<HTMLDivElement>(null);
+
+  const scrollBottom = () => setTimeout(() => {
+    if (msgsRef.current) msgsRef.current.scrollTop = msgsRef.current.scrollHeight;
+  }, 60);
+
+  const send = useCallback((text: string) => {
+    if (!text.trim()) return;
+    setMsgs((m) => [...m, { role: "user", text }]);
+    setInput("");
+    setTyping(true);
+    scrollBottom();
+    setTimeout(() => {
+      setTyping(false);
+      setMsgs((m) => [...m, { role: "bot", text: aiReply(text) }]);
+      scrollBottom();
+    }, 950 + Math.random() * 400);
+  }, []);
 
   return (
     <>
-      <div className="phone-slider">
-        {/* Screen 1 — Serenade Wash */}
-        <div className={screenClass(0)}>
-          <div className="ps1-logo">Serenade<span> Wash</span></div>
-          <div className="ps1-banner">
-            <div className="ps1-banner-tag">Premium Smart Wash</div>
-            <div className="ps1-banner-title">Uthiru's Finest Car Care</div>
-          </div>
-          <div className="ps1-price">From KSh 100</div>
-          <div className="ps1-qr">
-            <img src={QR_WASH} alt="Book via WhatsApp" />
-          </div>
-          <a href={WA.book} target="_blank" rel="noreferrer" className="ps1-cta">
-            Book Now →
-          </a>
-        </div>
-
-        {/* Screen 2 — Developer */}
-        <div className={screenClass(1)}>
-          <div className="ps2-avatar">BR</div>
-          <a href={PORTFOLIO_URL} target="_blank" rel="noreferrer" className="ps2-name">
-            Barrack Rabuku
-          </a>
-          <div className="ps2-role">Web Developer · UI/UX · Digital Solutions</div>
-          <div className="ps2-skills">
-            {SKILLS.map((s) => (
-              <div key={s.label} className="ps2-skill">
-                <span>{s.label}</span>
-                <div className="ps2-skill-bar">
-                  <div className="ps2-skill-fill" style={{ width: slide === 1 ? `${s.pct}%` : "0%" }} />
-                </div>
+      <button className="ai-fab" onClick={() => setOpen((o) => !o)} aria-label="AI Assistant">
+        <div className="ai-fab-ring" />
+        ✦
+      </button>
+      {open && (
+        <div className="ai-modal-backdrop" onClick={(e) => { if (e.target === e.currentTarget) setOpen(false); }}>
+          <div className="ai-modal">
+            <div className="ai-modal-hdr">
+              <div className="ai-hdr-avatar">✦</div>
+              <div className="ai-hdr-info">
+                <div className="ai-hdr-name">Serenade AI</div>
+                <div className="ai-hdr-status">● Online — here to help</div>
               </div>
-            ))}
+              <button className="ai-modal-close" onClick={() => setOpen(false)}>✕</button>
+            </div>
+            <div className="ai-messages" ref={msgsRef}>
+              {msgs.map((m, i) => (
+                <div key={i} className={`ai-msg ${m.role}`} style={{ whiteSpace: "pre-line" }}>{m.text}</div>
+              ))}
+              {typing && (
+                <div className="ai-typing">
+                  <span /><span /><span />
+                </div>
+              )}
+            </div>
+            <div className="ai-quick-replies">
+              {QUICK.map((q) => (
+                <button key={q} className="ai-qr" onClick={() => send(q)}>{q}</button>
+              ))}
+            </div>
+            <div className="ai-input-row">
+              <input
+                className="ai-input"
+                placeholder="Ask me anything…"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyDown={(e) => { if (e.key === "Enter") send(input); }}
+              />
+              <button className="ai-send" onClick={() => send(input)}>→</button>
+            </div>
           </div>
-          <div className="ps2-qr">
-            <img src={QR_PORTFOLIO} alt="Portfolio QR" />
-          </div>
-          <div className="ps2-powered">Built by Barrack · Powered by Innovation</div>
         </div>
-
-        {/* Screen 3 — Tech Forge */}
-        <div className={screenClass(2)}>
-          <div className="ps3-grid" />
-          <div className="ps3-glow" />
-          <div className="ps3-badge">⚙️</div>
-          <div className="ps3-brand">Tech<span> Forge</span></div>
-          <div className="ps3-tag">Sponsored by Tech Forge</div>
-          <div className="ps3-services">
-            {["Web Dev", "Branding", "Automation", "Systems"].map((s) => (
-              <div key={s} className="ps3-svc">{s}</div>
-            ))}
-          </div>
-          <div style={{ fontSize: ".48rem", color: "rgba(255,255,255,.3)", textAlign: "center", letterSpacing: ".1em", textTransform: "uppercase" }}>
-            Futuristic · Premium · Innovative
-          </div>
-        </div>
-      </div>
-
-      {/* Dots */}
-      <div className="phone-dots-nav">
-        {Array.from({ length: total }).map((_, i) => (
-          <button
-            key={i}
-            className={`phone-dot-nav${slide === i ? " active" : ""}`}
-            onClick={() => goTo(i)}
-            aria-label={`Slide ${i + 1}`}
-          />
-        ))}
-      </div>
+      )}
     </>
   );
 }
 
+/* ─── SINGLE PHONE SCREEN ─── */
+function PhoneScreen() {
+  return (
+    <div className="phone-screen-single" style={{ position: "relative" }}>
+      <div className="ps-glow" />
+      <div className="ps1-logo">Serenade<span> Wash</span></div>
+      <div className="ps1-banner">
+        <div className="ps1-banner-tag">Premium Smart Wash</div>
+        <div className="ps1-banner-title">Uthiru's Finest Car Care</div>
+      </div>
+      <div className="ps1-stats">
+        <div className="ps1-stat">
+          <div className="ps1-stat-val">2</div>
+          <div className="ps1-stat-lbl">Branches</div>
+        </div>
+        <div className="ps1-stat">
+          <div className="ps1-stat-val">3</div>
+          <div className="ps1-stat-lbl">Packages</div>
+        </div>
+        <div className="ps1-stat">
+          <div className="ps1-stat-val">100</div>
+          <div className="ps1-stat-lbl">From KSh</div>
+        </div>
+      </div>
+      <div className="ps1-qr">
+        <img src={QR_WASH} alt="Book via WhatsApp" />
+      </div>
+      <div className="ps1-member">
+        <div>
+          <div className="ps1-member-lbl">Freedom Pass</div>
+          <div className="ps1-member-val">KSh 1,300 / week</div>
+        </div>
+        <span style={{ color: "var(--aqua)", fontSize: ".7rem" }}>→</span>
+      </div>
+      <a href={waBook()} target="_blank" rel="noreferrer" className="ps1-cta">
+        Book Your Wash →
+      </a>
+    </div>
+  );
+}
+
+/* ─── DRAG CAROUSEL ─── */
 function useDragCarousel(ref: React.RefObject<HTMLDivElement | null>) {
   const isDown = useRef(false);
   const startX = useRef(0);
@@ -211,6 +298,7 @@ function useDragCarousel(ref: React.RefObject<HTMLDivElement | null>) {
   return { onMouseDown, onMouseLeave, onMouseUp, onMouseMove };
 }
 
+/* ─── MAIN PAGE ─── */
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -264,7 +352,7 @@ export default function Home() {
           <a href="#">Freedom Pass</a>
           <a href="#">Locations</a>
           <a href="#">Help &amp; Support</a>
-          <a href={WA.contact} target="_blank" rel="noreferrer" className="btn-login">Login</a>
+          <a href={waContact()} target="_blank" rel="noreferrer" className="btn-login">Login</a>
         </nav>
         <button className={`burger${mobileOpen ? " open" : ""}`} onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menu">
           <span /><span /><span />
@@ -275,10 +363,10 @@ export default function Home() {
       <div className={`mob-menu${mobileOpen ? " open" : ""}`}>
         <a href="#" onClick={() => setMobileOpen(false)}>Home</a>
         <a href="#" onClick={() => setMobileOpen(false)}>Wash Packages</a>
-        <a href="#" onClick={() => setMobileOpen(false)}>Freedom Pass</a>
+        <a href={WHATSAPP_GROUP} target="_blank" rel="noreferrer" onClick={() => setMobileOpen(false)}>Freedom Pass</a>
         <a href="#" onClick={() => setMobileOpen(false)}>Locations</a>
         <a href="#" onClick={() => setMobileOpen(false)}>Help &amp; Support</a>
-        <a href={WA.book} target="_blank" rel="noreferrer" style={{ color: "var(--aqua)", marginTop: "18px" }} onClick={() => setMobileOpen(false)}>Book an Appointment →</a>
+        <a href={waBook()} target="_blank" rel="noreferrer" style={{ color: "var(--aqua)", marginTop: "18px" }} onClick={() => setMobileOpen(false)}>Book an Appointment →</a>
       </div>
 
       {/* HERO */}
@@ -297,8 +385,8 @@ export default function Home() {
             We also offer home car wash services where our team comes to you.
           </p>
           <div className="hero-ctas">
-            <a href={WA.membership} target="_blank" rel="noreferrer" className="btn-primary">Membership</a>
-            <a href={WA.book} target="_blank" rel="noreferrer" className="btn-ghost">Book an Appointment</a>
+            <a href={WHATSAPP_GROUP} target="_blank" rel="noreferrer" className="btn-primary">Membership</a>
+            <a href={waBook()} target="_blank" rel="noreferrer" className="btn-ghost">Book an Appointment</a>
           </div>
         </div>
         <div className="hero-scroll">
@@ -325,7 +413,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* JOURNEY */}
+      {/* JOURNEY / BEFORE-AFTER */}
       <section className="sec sec-gray">
         <div className="container">
           <div className="journey-hdr rv">
@@ -336,7 +424,13 @@ export default function Home() {
           <div className="jgrid">
             {JOURNEY_CARDS.map((card, i) => (
               <div key={i} className={`jcard rv d${i + 1}`}>
-                <div className="jcard-imgwrap"><img src={card.img} alt={card.alt} loading="lazy" /></div>
+                <div className="jcard-imgwrap">
+                  {card.beforeAfter ? (
+                    <BeforeAfterSlider img={card.img} alt={card.alt} />
+                  ) : (
+                    <img src={card.img} alt={card.alt} loading="lazy" />
+                  )}
+                </div>
                 <div className="jcard-body">
                   <div className="jtag">{card.tag}</div>
                   <h3>{card.title}</h3>
@@ -352,14 +446,14 @@ export default function Home() {
       <div className={`jeep-band${jeepZoomed ? " zoomed" : ""}`} ref={jeepRef}>
         <img src="https://www.aquasoniccarwash.com/wp-content/uploads/2024/10/Jeep_by_lake-600x336.webp" alt="An SUV parked near a lake at sunset" loading="lazy" />
         <div className="jeep-overlay">
-          <div className="jeep-quote"><span>#fortheloveoftheroad</span></div>
+          <div className="jeep-quote"><span>#fortheloveofthecar</span></div>
         </div>
       </div>
 
       {/* LOCATION FINDER */}
       <section className="finder">
         <div className="container">
-          <p className="sec-label rv" style={{ textAlign: "center" }}>#fortheloveoftheroad</p>
+          <p className="sec-label rv" style={{ textAlign: "center" }}>#fortheloveofthecar</p>
           <h2 className="sec-title rv" style={{ color: "#fff", textAlign: "center", marginTop: "6px" }}>
             Find a Serenade Wash near you…<br /><em style={{ color: "var(--aqua)" }}>it's just a click away!</em>
           </h2>
@@ -373,7 +467,7 @@ export default function Home() {
           </div>
           <div className="finder-form rv" style={{ marginTop: "30px" }}>
             <input type="text" className="finder-input" placeholder="Enter your location or area" />
-            <button className="finder-btn" onClick={() => window.open(WA.contact, "_blank")}>Search</button>
+            <button className="finder-btn" onClick={() => window.open(waContact(), "_blank")}>Search</button>
           </div>
         </div>
       </section>
@@ -401,7 +495,7 @@ export default function Home() {
                 <ul className="pkg-features">
                   {pkg.features.map((f, fi) => <li key={fi}>{f}</li>)}
                 </ul>
-                <a href={pkg.wa} target="_blank" rel="noreferrer" className="pkg-link">Book Now →</a>
+                <a href={waPackage(pkg.waMsg)} target="_blank" rel="noreferrer" className="pkg-link">Book Now →</a>
               </div>
             ))}
           </div>
@@ -419,7 +513,7 @@ export default function Home() {
               <p className="sec-sub" style={{ color: "rgba(255,255,255,.52)" }}>
                 Get the Pro Wash plan for one full week at only KSh 1,300. Designed for customers who want consistent daily cleaning at an affordable price.
               </p>
-              <a href={WA.freedomPass} target="_blank" rel="noreferrer" className="btn-primary" style={{ marginTop: "36px" }}>Freedom Pass</a>
+              <a href={WHATSAPP_GROUP} target="_blank" rel="noreferrer" className="btn-primary" style={{ marginTop: "36px" }}>Freedom Pass</a>
             </div>
             <div className="fp-card rv d2">
               <div className="fp-name">Freedom<span> Pass</span></div>
@@ -432,7 +526,7 @@ export default function Home() {
                 <li>Affordable weekly package — KSh 1,300</li>
                 <li>Use at any Serenade Wash location</li>
               </ul>
-              <a href={WA.freedomPass} target="_blank" rel="noreferrer" className="btn-primary">Join Freedom Pass</a>
+              <a href={WHATSAPP_GROUP} target="_blank" rel="noreferrer" className="btn-primary">Join Freedom Pass</a>
             </div>
           </div>
         </div>
@@ -485,18 +579,18 @@ export default function Home() {
                   <span className="store-btn-ico">✉️</span>
                   <div className="store-btn-txt"><small>Email us</small><strong>bowambura123@gmail.com</strong></div>
                 </a>
-                <a href={WA.homeService} target="_blank" rel="noreferrer" className="store-btn" style={{ borderColor: "rgba(0,194,224,.3)" }}>
+                <a href={waHome()} target="_blank" rel="noreferrer" className="store-btn" style={{ borderColor: "rgba(0,194,224,.3)" }}>
                   <span className="store-btn-ico">🏠</span>
                   <div className="store-btn-txt"><small>Home Service</small><strong>Book via WhatsApp</strong></div>
                 </a>
               </div>
             </div>
 
-            {/* 3-SCREEN PHONE SLIDER */}
+            {/* SINGLE PHONE SCREEN */}
             <div className="phone-wrap rv d3">
               <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                 <div className="phone">
-                  <PhoneSlider />
+                  <PhoneScreen />
                 </div>
               </div>
             </div>
@@ -559,7 +653,7 @@ export default function Home() {
       </section>
 
       {/* HASHTAG BAR */}
-      <div className="hashtag-bar">#fortheloveoftheroad — wash it like you mean it.</div>
+      <div className="hashtag-bar">#fortheloveofthecar — wash it like you mean it.</div>
 
       {/* FOOTER */}
       <footer>
@@ -567,7 +661,7 @@ export default function Home() {
           <div className="foot-grid">
             <div className="foot-col">
               <div className="foot-logo">Serenade<span> Wash</span></div>
-              <p className="foot-tagline">Uthiru's Smartest Car Wash. Professional interior and exterior car care. Home service available. #fortheloveoftheroad</p>
+              <p className="foot-tagline">Uthiru's Smartest Car Wash. Professional interior and exterior car care. Home service available. #fortheloveofthecar</p>
               <div style={{ fontSize: ".72rem", color: "rgba(255,255,255,.3)", lineHeight: "1.9", margin: "12px 0 16px" }}>
                 <div>📍 Serenade Apartments, Uthiru, Nairobi</div>
                 <div>📍 Utawala, Nairobi</div>
@@ -586,27 +680,27 @@ export default function Home() {
             <div className="foot-col">
               <h4>Car Wash</h4>
               <ul>
-                <li><a href={WA.ultimate} target="_blank" rel="noreferrer">Ultimate Wash — KSh 450</a></li>
-                <li><a href={WA.pro} target="_blank" rel="noreferrer">Pro Wash — KSh 300</a></li>
-                <li><a href={WA.lite} target="_blank" rel="noreferrer">Lite Wash — KSh 100</a></li>
-                <li><a href={WA.freedomPass} target="_blank" rel="noreferrer">Freedom Pass — KSh 1,300/wk</a></li>
+                <li><a href={waPackage("Ultimate Wash package (KSh 450)")} target="_blank" rel="noreferrer">Ultimate Wash — KSh 450</a></li>
+                <li><a href={waPackage("Pro Wash package (KSh 300)")} target="_blank" rel="noreferrer">Pro Wash — KSh 300</a></li>
+                <li><a href={waPackage("Lite Wash package (KSh 100)")} target="_blank" rel="noreferrer">Lite Wash — KSh 100</a></li>
+                <li><a href={WHATSAPP_GROUP} target="_blank" rel="noreferrer">Freedom Pass — KSh 1,300/wk</a></li>
               </ul>
             </div>
             <div className="foot-col">
               <h4>Services</h4>
               <ul>
-                <li><a href={WA.contact} target="_blank" rel="noreferrer">Interior Wash — KSh 100</a></li>
-                <li><a href={WA.contact} target="_blank" rel="noreferrer">Exterior Wash — KSh 100</a></li>
-                <li><a href={WA.contact} target="_blank" rel="noreferrer">Mats &amp; Tires — KSh 100</a></li>
-                <li><a href={WA.homeService} target="_blank" rel="noreferrer">Home Service</a></li>
-                <li><a href={WA.book} target="_blank" rel="noreferrer">Book an Appointment</a></li>
+                <li><a href={waContact()} target="_blank" rel="noreferrer">Interior Wash — KSh 100</a></li>
+                <li><a href={waContact()} target="_blank" rel="noreferrer">Exterior Wash — KSh 100</a></li>
+                <li><a href={waContact()} target="_blank" rel="noreferrer">Mats &amp; Tires — KSh 100</a></li>
+                <li><a href={waHome()} target="_blank" rel="noreferrer">Home Service</a></li>
+                <li><a href={waBook()} target="_blank" rel="noreferrer">Book an Appointment</a></li>
               </ul>
             </div>
             <div className="foot-col">
               <h4>Support</h4>
               <ul>
-                <li><a href={WA.contact} target="_blank" rel="noreferrer">Help Centre</a></li>
-                <li><a href={WA.contact} target="_blank" rel="noreferrer">FAQs</a></li>
+                <li><a href={waContact()} target="_blank" rel="noreferrer">Help Centre</a></li>
+                <li><a href={waContact()} target="_blank" rel="noreferrer">FAQs</a></li>
                 <li><a href="#">Locations</a></li>
                 <li><a href={WHATSAPP_GROUP} target="_blank" rel="noreferrer">WhatsApp Community</a></li>
                 <li><a href="#">Accessibility</a></li>
@@ -648,23 +742,14 @@ export default function Home() {
             <strong>Join Freedom Pass</strong> — Pro Wash for a full week at just KSh 1,300.
           </div>
           <div className="sticky-bar-actions">
-            <a href={WA.freedomPass} target="_blank" rel="noreferrer" className="btn-primary" style={{ padding: "10px 28px" }}>Join Now</a>
+            <a href={WHATSAPP_GROUP} target="_blank" rel="noreferrer" className="btn-primary" style={{ padding: "10px 28px" }}>Join Now</a>
             <button className="bar-dismiss" onClick={() => { setStickyDismissed(true); setShowSticky(false); }}>✕</button>
           </div>
         </div>
       )}
 
-      {/* FLOATING ACTION BUTTONS */}
-      <div className="fab-group">
-        <a href={`tel:${CALL_NUMBER}`} className="fab fab-call" aria-label="Call us">
-          <span className="fab-tooltip">Call Us</span>
-          📞
-        </a>
-        <a href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("Hello Serenade Wash, I would like to inquire about your services.")}`} target="_blank" rel="noreferrer" className="fab fab-wa" aria-label="WhatsApp">
-          <span className="fab-tooltip">WhatsApp Us</span>
-          💬
-        </a>
-      </div>
+      {/* AI ASSISTANT */}
+      <AIAssistant />
     </>
   );
 }

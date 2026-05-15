@@ -1,6 +1,6 @@
 kind = "web"
 previewPath = "/"
-title = "AquaSonic Car Wash"
+title = "Serenade Wash"
 version = "1.0.0"
 id = "artifacts/aquasonic"
 router = "path"
@@ -18,8 +18,8 @@ localPort = 20579
 run = "pnpm --filter @workspace/aquasonic run dev"
 
 [services.production]
-build = [ "pnpm", "--filter", "@workspace/aquasonic", "run", "build" ]
-publicDir = "artifacts/aquasonic/dist/public"
+build = [ "pnpm", "--filter", "@workspace/aquasonic...", "run", "build" ]
+publicDir = "artifacts/aquasonic/dist"
 serve = "static"
 
 [[services.production.rewrites]]

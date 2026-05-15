@@ -1,0 +1,136 @@
+Fix and prepare this entire project for successful deployment on Netlify and successful local execution inside Replit.
+
+Current deployment error:
+"Error: PORT environment variable is required but was not provided."
+
+The build currently fails while loading:
+artifacts/aquasonic/vite.config.ts
+
+Tasks to complete automatically:
+
+1. Search the ENTIRE workspace for:
+
+* process.env.PORT
+* "PORT environment variable is required"
+* any env validation logic
+* any code throwing when PORT is missing
+* any server config incompatible with Netlify
+
+2. Remove ALL strict PORT requirements.
+
+Replace unsafe logic like:
+
+```ts id="jsn9dm"
+if (!process.env.PORT) {
+  throw new Error("PORT environment variable is required");
+}
+```
+
+with safe fallback logic:
+
+```ts id="r79b6w"
+const PORT = Number(process.env.PORT) || 5173;
+```
+
+3. Update ALL vite.config.ts files to be Netlify-safe.
+
+Use:
+
+```ts id="mgj7zc"
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  plugins: [react()],
+  server: {
+    host: '0.0.0.0',
+    port: Number(process.env.PORT) || 5173
+  }
+})
+```
+
+4. Ensure production builds NEVER fail because PORT is missing.
+
+5. Inspect and repair:
+
+* netlify.toml
+* package.json scripts
+* pnpm-workspace.yaml
+* monorepo configuration
+* build scripts
+* import/path issues
+* dependency problems
+* TypeScript errors
+* Vite configuration issues
+
+6. Ensure Netlify config is correct:
+
+```toml id="q6v4s8"
+[build]
+  command = "pnpm --filter @workspace/aquasonic... run build"
+  publish = "artifacts/aquasonic/dist"
+
+[context.production.environment]
+  NODE_VERSION = "22"
+  PORT = "5173"
+```
+
+7. Verify the build output directory exists:
+
+```txt id="g3r1ol"
+artifacts/aquasonic/dist
+```
+
+8. If React Router exists:
+   Create:
+
+```txt id="2p6ns9"
+public/_redirects
+```
+
+with:
+
+```txt id="6klv5g"
+/* /index.html 200
+```
+
+9. Run automatically:
+
+```bash id="09mxgt"
+pnpm install
+pnpm --filter @workspace/aquasonic... run build
+```
+
+10. Continue debugging automatically until:
+
+* build succeeds
+* no Vite config crashes
+* Netlify compatibility is confirmed
+* dist folder is generated
+
+11. After all fixes:
+    Provide:
+
+* exact command to run locally
+* exact command to build
+* exact command to preview production build
+* exact Netlify build command
+* exact Netlify publish directory
+
+12. Preserve:
+
+* all UI
+* animations
+* responsiveness
+* branding
+* layouts
+* styles
+* functionality
+
+13. Commit all fixes safely without deleting working features.
+
+14. Ensure project works after:
+
+* pushing to GitHub
+* importing into Netlify
+* deploying from GitHub automatically.

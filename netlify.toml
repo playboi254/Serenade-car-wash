@@ -1,0 +1,13 @@
+[build]
+  command = "pnpm --filter @workspace/aquasonic... run build"
+  publish = "artifacts/aquasonic/dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+  BASE_PATH = "/"
+  PNPM_VERSION = "10"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
